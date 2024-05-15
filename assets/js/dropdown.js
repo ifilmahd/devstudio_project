@@ -5,14 +5,20 @@ document.addEventListener("DOMContentLoaded", function() {
     dropdownToggle.addEventListener('click', function(event) {
         event.preventDefault();
         dropdownMenu.classList.toggle('show');
-        dropdownMenu.classList.toggle('top'); // Toggle the 'top' class dynamically
+        
+        // Adjust the z-index dynamically
+        if (dropdownMenu.classList.contains('show')) {
+            dropdownMenu.style.zIndex = "9999";
+        } else {
+            dropdownMenu.style.zIndex = "auto";
+        }
     });
 
     // Close dropdown when clicking outside
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.dropdown')) {
             dropdownMenu.classList.remove('show');
-            dropdownMenu.classList.remove('top'); // Remove the 'top' class when closing the dropdown
+            dropdownMenu.style.zIndex = "auto"; // Reset z-index when closing the dropdown
         }
     });
 });
