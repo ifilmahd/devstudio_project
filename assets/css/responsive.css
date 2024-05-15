@@ -3689,7 +3689,7 @@
         font-size: 40px;
     }
     .hero-empowerment-area .hero-empowerment-right-content .top-content img.desktop {
-        display: none;
+        display: block;
     }
     .hero-empowerment-area .hero-empowerment-right-content .mobile {
         display: block;
