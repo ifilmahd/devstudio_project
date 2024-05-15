@@ -1,7 +1,7 @@
 /* ----------------------------------
 
-Template Name: Synck - Landing Page Template
-Author: WordPress River
+Template Name: DevStudioAl - Landing Page Template
+Author: DevStudioAl
 Description:
 Version: 1.0
 
@@ -146,6 +146,7 @@ body {
 }
 img {
     max-width: 100%;
+    border-radius: 6px;
 }
 
 .custom-container {
