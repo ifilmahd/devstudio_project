@@ -1,3 +1,6 @@
+/* ==================================================
+    Language flag icon menu
+================================================== */
 document.addEventListener("DOMContentLoaded", function() {
     const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
     const dropdownMenu = document.querySelector('.dropdown-menu');
