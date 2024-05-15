@@ -1,28 +1,32 @@
-// Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function() {
-    // Get the dropdown toggle element
     const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
-    
-    // Add event listener to the dropdown toggle element
+
     dropdownToggle.addEventListener('click', function(event) {
-        // Prevent the default link behavior
         event.preventDefault();
+        const dropdownMenu = this.nextElementSibling;
+        const isOpen = dropdownMenu.classList.contains('show');
+
+        // Close all dropdowns before opening this one
+        closeAllDropdowns();
         
         // Toggle the 'show' class on the dropdown menu
-        const dropdownMenu = this.nextElementSibling;
-        dropdownMenu.classList.toggle('show');
+        if (!isOpen) {
+            dropdownMenu.classList.add('show');
+        }
     });
+
+    // Function to close all dropdowns
+    function closeAllDropdowns() {
+        const dropdownMenus = document.querySelectorAll('.dropdown-menu.show');
+        dropdownMenus.forEach(function(dropdownMenu) {
+            dropdownMenu.classList.remove('show');
+        });
+    }
 
     // Close dropdown when clicking outside
     document.addEventListener('click', function(event) {
-        const dropdowns = document.querySelectorAll('.dropdown');
-        dropdowns.forEach(function(dropdown) {
-            if (!dropdown.contains(event.target)) {
-                const openDropdown = dropdown.querySelector('.dropdown-menu.show');
-                if (openDropdown) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        });
+        if (!event.target.closest('.dropdown')) {
+            closeAllDropdowns();
+        }
     });
 });
