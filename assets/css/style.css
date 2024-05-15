@@ -312,19 +312,12 @@ img {
 }
 
 /*pop-in Animation */
-.pop-in {
-    
-}
+
 
 /*delay-2 Animation */
-.delay-2 {
-
-}
 
 /*delay-3 Animation */
-.delay-3 {
-    animation-delay: 2s;
-}
+
 
 /*fadeIn Effects */
 @keyframes fadeIn {
