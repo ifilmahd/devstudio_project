@@ -931,7 +931,7 @@ img {
     flex: none;
 }
 .hero-empowerment-area .hero-empowerment-right-content .top-content .mobile {
-    display: contents;
+    display: none;
 }
 .hero-empowerment-area .hero-empowerment-left-content h5 {
     margin-bottom: 16px;
