@@ -1654,6 +1654,7 @@ img {
 }
 .client-area .clients .client-logo img {
     display: block;
+    max-width: 81px;
 }
 .client-area-2 {
     padding-top: 0;
