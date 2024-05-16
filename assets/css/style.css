@@ -494,7 +494,7 @@ img {
 .header-area .navbar-wrapper > ul {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
 }
 .header-area .navbar-wrapper > ul > li > ul {
     display: none;
