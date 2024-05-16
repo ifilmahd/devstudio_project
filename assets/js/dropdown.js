@@ -8,12 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
     dropdownToggle.addEventListener('click', function(event) {
         event.preventDefault();
         dropdownMenu.classList.toggle('show');
-
-// Assuming you have a reference to the element
-const element = document.querySelector('.fi');
-
-// Set border-radius using JavaScript
-element.style.borderRadius = '2px'; // Adjust the value as needed
         
         // Adjust the z-index dynamically
         if (dropdownMenu.classList.contains('show')) {
