@@ -16,7 +16,7 @@
 
 @media (max-width: 1920px) {
     .hero-section-wrap:not(.hero-home2) .hero-section-content-wrap {
-        padding-top: 100px;
+        padding-top: 40px;
     }
     .new-release-page .hero-service-wrap .hero-section-content-wrap .hero-section-content,
     .new-release-page .hero-service-wrap .hero-section-content-wrap .hero-section-content h1,
@@ -538,7 +538,7 @@
     }
     .news-area,
     .contact-area {
-        padding: 120px 0;
+        padding: 60px 0;
     }
     .feature3-area,
     .service-area,
@@ -918,7 +918,7 @@
     }
     .hero-portfolio-wrap .hero-section-content-wrap,
     .hero-company-boxes {
-        padding-bottom: 90px;
+        padding-bottom: 35px;
     }
     .hero-company-wrap .hero-section-content-wrap {
         padding-bottom: 0;
@@ -989,7 +989,7 @@
         max-width: 799px;
     }
     .hero-portfolio-wrap .hero-portfolio-body {
-        padding-bottom: 100px;
+        padding-bottom: 15px;
     }
     .faq-area .faq-inner .section-title {
         font-size: 45px;
@@ -1010,7 +1010,7 @@
     }
     .contact-area2,
     .cta-area2 {
-        padding-bottom: 135px;
+        padding-bottom: 70px;
     }
     .contact-page .hero-portfolio-wrap .hero-portfolio-body {
         border-bottom: none;
@@ -1060,7 +1060,7 @@
         padding-right: 132px;
     }
     .contact-location-area {
-        padding: 124px 0;
+        padding: 80px 0;
     }
     .contact-location-box {
         padding: 30px 48px 30px 22px;
@@ -2418,8 +2418,8 @@
         margin-bottom: 16px;
     }
     .map-location-item .map-location-item-inner  {
-        padding: 17px 43px 24px 15px;
-        width: 200px;
+        padding: 17px 27px 18px 15px;
+        width: 190px;
     }
     .mac-btns-wrap .action-btn span {
         width: 4px;
