@@ -2420,7 +2420,7 @@ img {
 /* About */
 .about-area {
     padding-top: 220px;
-    padding-bottom: 110px;
+    padding-bottom: 30px;
 }
 .about-area .custom-row {
     width: 100%;
@@ -3566,7 +3566,7 @@ img {
     overflow: hidden;
     background: rgb(19 81 216 / 5%);
     position: relative;
-    padding-top: 150px;
+    padding-top: 60px;
     padding-bottom: 106px;
 }
 .project-area .project-left-details {
