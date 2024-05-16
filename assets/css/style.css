@@ -148,7 +148,7 @@ body {
     overflow-x: hidden;
 }
 img {
-    max-width: 81px;
+    max-width: 100%;
     border-radius: 6px;
 }
 
@@ -6220,6 +6220,7 @@ img {
 }
 .footer-area .footer-top .left-content .footer-clients img {
     display: block;
+    max-width: 100px;
 }
 .footer-area .footer-top .right-content .right-content-inner h2 {
     color: #ffffff;
