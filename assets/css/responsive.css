@@ -549,7 +549,7 @@
     .cta-area,
     .cta-area2,
     .about-area {
-        padding-top: 120px;
+        padding-top: 60px;
     }
     .solution-page .company-service-area,
     .client-area-2,
@@ -880,7 +880,7 @@
         padding-bottom: 160px;
     }
     .case-studio-area {
-        padding-top: 100px;
+        padding-top: 45px;
         padding-bottom: 100px;
     }
     .case-studio-area .case-studio-header {
@@ -2247,8 +2247,8 @@
         max-width: 450px;
     } */
     .homepage .service-area {
-        padding-top: 140px;
-        padding-bottom: 135px;
+        padding-top: 55px;
+        padding-bottom: 65px;
     }
     .section-title {
         font-size: 45px;
@@ -2728,7 +2728,7 @@
         padding: 0 20px;
     }
     .client-area {
-        padding-bottom: 90px;
+        padding-bottom: 35px;
     }
     .client-area .clients .client-logo {
         min-width: 200px;
@@ -2814,7 +2814,7 @@
     .about-service7-area,
     .news2-area,
     .testimonial-area {
-        padding-bottom: 100px;
+        padding-bottom: 40px;
     }
     .feature-page .company-service-area {
         padding-top: 0;
@@ -3300,7 +3300,7 @@
         line-height: 26px;
     }
     .hero-empowerment-area .custom-row {
-        padding-bottom: 90px;
+        padding-bottom: 44px;
     }
     .hero-empowerment-area .hero-empowerment-left-content h1 {
         font-size: 58px;
@@ -4033,7 +4033,7 @@
     }
     .hero-service-wrap .hero-section-content-wrap,
     .contact-area{
-        padding-bottom: 100px;
+        padding-bottom: 40px;
     }
     .hero-company-wrap .hero-section-content-wrap{
         padding-bottom: 0px;
