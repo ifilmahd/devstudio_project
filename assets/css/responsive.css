@@ -1,4 +1,3 @@
-
 :root {
     --dark1: #1C1C1C;
     --dark2: #454545;
@@ -2082,7 +2081,7 @@
     .theme-btn2,
     .header-area .header-contact-info .phone-number,
     .header-area .navbar-wrapper ul li a {
-        font-size: 13px;
+        font-size: 15px;
     }
     .header-area .navbar-wrapper ul li.mega-menu-item > a:after, 
     .header-area .navbar-wrapper ul li.dropdown-menu-item > a:after {
