@@ -965,7 +965,16 @@ img {
 .hero-empowerment-area .hero-empowerment-right-content .top-content img {
     display: block;
     border-radius: 10px;
-    width: 65%;
+    width: 70%;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    .hero-empowerment-area .hero-empowerment-right-content .top-content img {
+        display: block;
+    border-radius: 10px;
+	    width: 85%;
+    }
 }
 .hero-empowerment-area .hero-empowerment-right-content .top-content .experience-box {
     position: absolute;
