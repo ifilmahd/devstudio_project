@@ -179,7 +179,9 @@ img {
     transition: transform .5s;
     transform: rotate(45deg);
 }
-
+img.desktop.fade-in {
+    margin-left: 150px;
+}
 /* ============================================================== 
     # Button Styles
 =================================================================== */
@@ -966,7 +968,7 @@ img {
 .hero-empowerment-area .hero-empowerment-right-content .top-content img {
     display: block;
     border-radius: 10px;
-    width: 100%;
+    width: 350px;
 }
 .hero-empowerment-area .hero-empowerment-right-content .top-content .experience-box {
     position: absolute;
