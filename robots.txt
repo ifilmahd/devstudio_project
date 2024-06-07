@@ -1,4 +1,6 @@
 User-agent: *
-Disallow:
+Disallow: /it/
+Disallow: /al/
+Disallow: /de/
 
 Sitemap: https://www.devstudioal.com/sitemap.xml
