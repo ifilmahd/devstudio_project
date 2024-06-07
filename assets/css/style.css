@@ -964,7 +964,7 @@ img {
 .hero-empowerment-area .hero-empowerment-right-content .top-content img {
     display: block;
     border-radius: 10px;
-    width: 350px;
+    width: 100%;
 }
 .hero-empowerment-area .hero-empowerment-right-content .top-content .experience-box {
     position: absolute;
