@@ -4,8 +4,8 @@
         const dropdownMenu = document.querySelector('.dropdown-menu');
         let selectedLanguage = 'en'; // Default language is English
 
-        dropdownToggle.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default behavior of the anchor tag
+        // Function to toggle the dropdown menu
+        function toggleDropdown() {
             dropdownMenu.classList.toggle('show');
 
             // Adjust the z-index dynamically
@@ -14,6 +14,12 @@
             } else {
                 dropdownMenu.style.zIndex = "auto";
             }
+        }
+
+        // Dropdown toggle click event listener
+        dropdownToggle.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default behavior of the anchor tag
+            toggleDropdown();
         });
 
         // Close dropdown when clicking outside
@@ -31,6 +37,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             urlParams.set('lang', lang);
             window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
+            toggleDropdown(); // Close dropdown after selecting a language
         }
 
         // Language change event listeners
