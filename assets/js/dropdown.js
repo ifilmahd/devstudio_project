@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
             return; // Do nothing if the selected language is the same as the current language
         }
         localStorage.setItem('preferredLanguage', lang);
-        window.location.href = lang; // Redirect to the selected language page
+        if (window.location.pathname !== lang) {
+            window.location.href = lang; // Redirect to the selected language page
+        }
     }
 });
