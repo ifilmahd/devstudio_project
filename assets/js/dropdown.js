@@ -40,10 +40,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-  function setLanguage(lang) {
-    const newUrl = new URL(lang, window.location.origin).href;
-    localStorage.setItem('preferredLanguage', lang);
-    if (window.location.href !== newUrl) {
-        window.location.href = newUrl;
+ function setLanguage(lang) {
+    const currentLang = window.location.pathname.split('/')[1]; // Extract current language
+    const newLang = lang.split('/')[1]; // Extract selected language
+    if (currentLang !== newLang) {
+        const newUrl = new URL(lang, window.location.origin).href;
+        localStorage.setItem('preferredLanguage', lang);
+        window.location.href = newUrl; // Redirect to the selected language page
     }
 }
