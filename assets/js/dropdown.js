@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
         if (!window.location.pathname.startsWith(savedLangBase)) {
             window.location.href = savedLang;
+        } else if (savedLangBase === '/it/' && currentLangBase === '/') {
+            window.location.reload(); // Refresh the page when switching from default to Italian
         }
     }
 
