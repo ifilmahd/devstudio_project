@@ -1,3 +1,6 @@
+/* ==================================================
+    Language flag icon menu with localStorage
+================================================== */
 document.addEventListener("DOMContentLoaded", function() {
     const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
     const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -36,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
             dropdownMenu.style.zIndex = "auto"; // Reset z-index when closing the dropdown
         }
     });
-
 
     function setLanguage(lang) {
         const newPath = new URL(lang, window.location.origin).pathname;
