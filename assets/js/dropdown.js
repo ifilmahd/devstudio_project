@@ -1,26 +1,33 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const dropdownToggle = document.querySelector('#currentLanguage');
+    const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
     const dropdownMenu = document.querySelector('.dropdown-menu');
     const languageLinks = document.querySelectorAll('.dropdown-item');
 
-    // Event listener for the dropdown toggle
     dropdownToggle.addEventListener('click', function(event) {
         event.preventDefault();
         dropdownMenu.classList.toggle('show');
+        
+        // Adjust the z-index dynamically
+        if (dropdownMenu.classList.contains('show')) {
+            dropdownMenu.style.zIndex = "9999";
+        } else {
+            dropdownMenu.style.zIndex = "";
+        }
     });
 
     // Close dropdown when clicking outside
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.dropdown')) {
             dropdownMenu.classList.remove('show');
+            dropdownMenu.style.zIndex = ""; // Reset z-index when closing the dropdown
         }
     });
 
-    // Event listener for language change
+    // Language switching logic
     languageLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            const languageCode = link.getAttribute('data-lang');
+            const languageCode = link.querySelector('i').classList[1].split('-')[1]; // Extracting the language code from the class
             changeLanguage(languageCode);
         });
     });
@@ -31,35 +38,38 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('selectedLanguage', languageCode);
 
         // Update the displayed language
-        updateDropdownIcon(languageCode);
-
-        // Load the new language page
-        window.location.href = `/${languageCode}/index.html`;
+        updatePageLanguage(languageCode);
     }
 
-    // Function to update the dropdown icon
-    function updateDropdownIcon(languageCode) {
-        const iconClass = `fi fi-${languageCode}`;
-        dropdownToggle.querySelector('i').className = iconClass;
+    // Function to update the displayed language
+    function updatePageLanguage(languageCode) {
+        // You need to implement the logic to load and display the page content in the selected language
+        // This might involve fetching new content via AJAX or reloading the page with new content dynamically
+
+        // Example: Assume you have different language files and you load them via AJAX
+        fetch(`/${languageCode}/index.html`)
+            .then(response => response.text())
+            .then(data => {
+                document.documentElement.innerHTML = data;
+                // Reinitialize scripts if necessary
+            });
+
+        // Optionally, update the URL without adding a new entry to the browser's history
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('lang', languageCode);
+        window.history.replaceState({ path: currentUrl.href }, '', currentUrl.href);
     }
-// Adjust the z-index dynamically
-        if (dropdownMenu.classList.contains('show')) {
-            dropdownMenu.style.zIndex = "9999";
-        } else {
-            dropdownMenu.style.zIndex = "auto";
-        }
-    });
-    
+
     // On page load, check if a language is saved in localStorage
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
-        updateDropdownIcon(savedLanguage);
+        updatePageLanguage(savedLanguage);
     }
 
     // Handle browser back/forward navigation
     window.addEventListener('popstate', function() {
         const urlParams = new URLSearchParams(window.location.search);
         const languageCode = urlParams.get('lang') || 'en'; // Default to 'en' if no language is set
-        updateDropdownIcon(languageCode);
+        updatePageLanguage(languageCode);
     });
 });
