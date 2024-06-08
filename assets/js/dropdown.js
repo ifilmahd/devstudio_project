@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-   // Language switching logic
-languageLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const languageCode = link.querySelector('i').classList[1].split('-')[1]; // Extracting the language code from the class
-        changeLanguage(languageCode);
+    // Language switching logic
+    languageLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const languageCode = link.dataset.language; // Extract language code from data-language attribute
+            changeLanguage(languageCode);
+        });
     });
-});
 
     // Function to change language
     function changeLanguage(languageCode) {
