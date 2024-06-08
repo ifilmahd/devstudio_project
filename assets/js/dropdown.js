@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
    langLinks.forEach(link => {
     link.addEventListener('click', function(event) {
         event.preventDefault();
-        console.log(langLinks);
         const selectedLang = this.getAttribute('href');
         setLanguage(selectedLang);
     });
