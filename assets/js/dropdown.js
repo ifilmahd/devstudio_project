@@ -6,20 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const dropdownMenu = document.querySelector('.dropdown-menu');
     const langLinks = dropdownMenu.querySelectorAll('.dropdown-item');
 
-    // Helper function to get the base language path
-    function getBaseLanguagePath(path) {
-        const parts = path.split('/');
-        return parts.length > 1 ? `/${parts[1]}/` : '/';
-    }
-
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang) {
-        const savedLangBase = getBaseLanguagePath(savedLang);
-        const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (savedLangBase !== currentLangBase) {
-            window.location.href = savedLang;
-        }
+    if (savedLang && window.location.pathname !== new URL(savedLang, window.location.origin).pathname) {
+        window.location.href = savedLang;
     }
 
     dropdownToggle.addEventListener('click', function(event) {
@@ -51,13 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function setLanguage(lang) {
+        const newPath = new URL(lang, window.location.origin).pathname;
         localStorage.setItem('preferredLanguage', lang);
-        const selectedLangBase = getBaseLanguagePath(lang);
-        const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (currentLangBase !== selectedLangBase) {
+        if (window.location.pathname !== newPath) {
             window.location.href = lang; // Redirect to the selected language page if not already there
-        } else {
-            window.location.href = lang; // Navigate within the same language
         }
     }
 });
