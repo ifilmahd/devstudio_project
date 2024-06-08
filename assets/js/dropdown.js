@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function setLanguage(lang) {
         localStorage.setItem('preferredLanguage', lang);
-        window.location.href = lang; // Redirect to the selected language page
+        if (window.location.pathname !== new URL(lang, window.location.origin).pathname) {
+            window.location.href = lang; // Redirect to the selected language page if not already there
+        }
     }
 });
