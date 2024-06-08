@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Handle browser back/forward navigation
     window.addEventListener('popstate', function() {
         const urlParams = new URLSearchParams(window.location.search);
-        const languageCode = urlParams.get('lang') || 'en'; // Default to 'en' if no language is set
+        const languageCode = urlParams.get('lang') || 'en' 'it' 'al' 'de'; // Default to 'en' if no language is set
         updatePageLanguage(languageCode);
     });
 });
