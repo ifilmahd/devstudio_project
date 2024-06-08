@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-   langLinks.forEach(link => {
+   document.querySelectorAll('.dropdown-item').forEach(link => {
     link.addEventListener('click', function(event) {
         event.preventDefault();
         const selectedLang = this.getAttribute('href');
