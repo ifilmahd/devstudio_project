@@ -2,7 +2,7 @@
     Language flag icon menu with localStorage
 ================================================== */
 document.addEventListener("DOMContentLoaded", function() {
-    const langLinks = dropdownMenu.querySelectorAll('.dropdown-item');
+    const langLinks = document.querySelectorAll('.dropdown-item');
 
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('preferredLanguage');
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-        langLinks.forEach(link => {
+       langLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const selectedLang = this.getAttribute('href');
@@ -39,11 +39,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 function setLanguage(lang) {
-    const currentLang = window.location.pathname.split('/')[1] || ''; // Extract current language or set to empty string if not present
-    const newLang = lang.split('/')[3] || ''; // Extract selected language or set to empty string if not present
-    if (currentLang !== newLang) {
-        const newUrl = lang; // Use the provided URL directly
-        localStorage.setItem('preferredLanguage', newLang);
-        window.location.href = newUrl; // Redirect to the selected language page
+        const currentLang = window.location.pathname.split('/')[1] || ''; // Extract current language or set to empty string if not present
+        const newLang = lang.split('/')[3] || ''; // Extract selected language or set to empty string if not present
+        if (currentLang !== newLang) {
+            const newUrl = lang; // Use the provided URL directly
+            localStorage.setItem('preferredLanguage', newLang);
+            window.location.href = newUrl; // Redirect to the selected language page
+        }
     }
-}
+});
