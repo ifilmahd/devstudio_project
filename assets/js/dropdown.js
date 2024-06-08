@@ -1,6 +1,3 @@
-/* ==================================================
-    Language flag icon menu with localStorage
-================================================== */
 document.addEventListener("DOMContentLoaded", function() {
     const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
     const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -54,10 +51,14 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('preferredLanguage', lang);
         const selectedLangBase = getBaseLanguagePath(lang);
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (currentLangBase !== selectedLangBase) {
-            window.location.href = lang; // Redirect to the selected language page if not already there
-        } else {
-            window.location.href = lang; // Navigate within the same language
+        
+        // Check if the selected language matches the current language base path
+        if (selectedLangBase === currentLangBase) {
+            // Do nothing if already in the selected language
+            return;
         }
+        
+        // Redirect to the selected language page
+        window.location.href = lang;
     }
 });
