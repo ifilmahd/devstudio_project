@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang) {
-        setLanguage(savedLang);
+        if (window.location.href !== savedLang) {
+            window.location.href = savedLang;
+        }
     }
 
     dropdownToggle.addEventListener('click', function(event) {
@@ -30,8 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
             const selectedLang = this.getAttribute('href');
             setLanguage(selectedLang);
-            dropdownMenu.classList.remove('show');
-            dropdownMenu.style.zIndex = "auto";
         });
     });
 
@@ -45,10 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function setLanguage(lang) {
         localStorage.setItem('preferredLanguage', lang);
-        if (lang === 'https://devstudioal.com/') {
-            window.location.href = '/';
-        } else {
-            window.location.href = lang;
-        }
+        window.location.href = lang; // Redirect to the selected language page
     }
 });
