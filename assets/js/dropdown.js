@@ -37,11 +37,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    function setLanguage(lang) {
-        const newUrl = new URL(lang, window.location.origin).href;
-        localStorage.setItem('preferredLanguage', lang);
-        if (window.location.href !== newUrl) {
-            window.location.href = newUrl;
-        }
-    }
+   langLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        console.log("Language link clicked");
+        const selectedLang = this.getAttribute('href');
+        setLanguage(selectedLang);
+    });
 });
