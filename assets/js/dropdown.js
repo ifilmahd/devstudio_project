@@ -5,7 +5,7 @@
         let selectedLanguage = 'en'; // Default language is English
 
         dropdownToggle.addEventListener('click', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default behavior of the anchor tag
             dropdownMenu.classList.toggle('show');
 
             // Adjust the z-index dynamically
@@ -24,7 +24,7 @@
             }
         });
 
-        // Change language function
+        // Function to change language
         function changeLanguage(lang) {
             selectedLanguage = lang;
             // Update the URL
@@ -35,22 +35,22 @@
 
         // Language change event listeners
         document.getElementById('en').addEventListener('click', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default behavior of the anchor tag
             changeLanguage('en');
         });
 
         document.getElementById('it').addEventListener('click', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default behavior of the anchor tag
             changeLanguage('it');
         });
 
         document.getElementById('al').addEventListener('click', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default behavior of the anchor tag
             changeLanguage('al');
         });
 
         document.getElementById('de').addEventListener('click', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default behavior of the anchor tag
             changeLanguage('de');
         });
 
@@ -60,5 +60,8 @@
         if (langParam) {
             selectedLanguage = langParam;
         }
+
+        // Set the default selected language in the dropdown
+        document.getElementById(selectedLanguage).classList.add('active');
     });
 </script>
