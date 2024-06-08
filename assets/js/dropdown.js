@@ -48,17 +48,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function setLanguage(lang) {
-        localStorage.setItem('preferredLanguage', lang);
-        const selectedLangBase = getBaseLanguagePath(lang);
-        const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        
-        // Check if the selected language matches the current language base path
-        if (selectedLangBase === currentLangBase) {
-            // Do nothing if already in the selected language
-            return;
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang === lang) {
+            return; // Do nothing if the selected language is the same as the current language
         }
-        
-        // Redirect to the selected language page
-        window.location.href = lang;
+        localStorage.setItem('preferredLanguage', lang);
+        window.location.href = lang; // Redirect to the selected language page
     }
 });
