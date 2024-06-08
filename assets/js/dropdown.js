@@ -5,14 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
     const dropdownMenu = document.querySelector('.dropdown-menu');
     const langLinks = dropdownMenu.querySelectorAll('.dropdown-item');
-    const currentLang = document.querySelector('.fi-gb');
 
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang) {
-        if (window.location.href !== savedLang) {
-            window.location.href = savedLang;
-        }
+    if (savedLang && window.location.pathname !== new URL(savedLang).pathname) {
+        window.location.href = savedLang;
     }
 
     dropdownToggle.addEventListener('click', function(event) {
