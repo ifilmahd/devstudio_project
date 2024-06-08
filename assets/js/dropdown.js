@@ -48,9 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (languageCode !== 'en') {
             baseUrl += `/${languageCode}`;
         }
-
-        // Redirect to the appropriate language-specific page
-        window.location.href = `${baseUrl}/about`;
     }
 
     // On page load, check if a language is saved in localStorage
