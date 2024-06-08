@@ -40,13 +40,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    function setLanguage(lang) {
-        const currentLang = window.location.pathname.split('/')[1]; // Extract current language
-        const newLang = lang.split('/')[3]; // Extract selected language
-        if (currentLang !== newLang) {
-            const newUrl = new URL(lang, window.location.origin).href;
-            localStorage.setItem('preferredLanguage', newLang);
-            window.location.href = newUrl; // Redirect to the selected language page
+  function setLanguage(lang) {
+    const currentLang = window.location.pathname.split('/')[1]; // Extract current language
+    const newLang = lang.split('/')[3]; // Extract selected language
+    if (currentLang !== newLang) {
+        let newUrl;
+        if (window.location.pathname.includes('/' + newLang + '/')) {
+            // If the new language is already present in the URL, replace it
+            const parts = window.location.pathname.split('/');
+            parts[1] = newLang;
+            newUrl = window.location.origin + parts.join('/');
+        } else {
+            // If the new language is not present in the URL, add it
+            newUrl = new URL(lang, window.location.origin).href;
         }
+        localStorage.setItem('preferredLanguage', newLang);
+        window.location.href = newUrl; // Redirect to the selected language page
     }
-});
+}
