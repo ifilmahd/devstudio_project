@@ -43,21 +43,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to update the displayed language
     function updatePageLanguage(languageCode) {
-        // You need to implement the logic to load and display the page content in the selected language
-        // This might involve fetching new content via AJAX or reloading the page with new content dynamically
+        // Update the URL based on the selected language
+        let newUrl = `https://devstudioal.com/${languageCode}/`;
 
-        // Example: Assume you have different language files and you load them via AJAX
-        fetch(`/${languageCode}/index.html`)
-            .then(response => response.text())
-            .then(data => {
-                document.documentElement.innerHTML = data;
-                // Reinitialize scripts if necessary
-            });
+        // Update the URL without adding a new entry to the browser's history
+        window.history.replaceState({ path: newUrl }, '', newUrl);
 
-        // Optionally, update the URL without adding a new entry to the browser's history
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.set('lang', languageCode);
-        window.history.replaceState({ path: currentUrl.href }, '', currentUrl.href);
+        // Optionally, reload the page to reflect the language change
+        window.location.reload();
     }
 
     // On page load, check if a language is saved in localStorage
@@ -68,8 +61,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Handle browser back/forward navigation
     window.addEventListener('popstate', function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const languageCode = urlParams.get('lang') || 'en'; // Default to 'en' if no language is set
-        updatePageLanguage(languageCode);
+        // Get the language code from the URL
+        const url = new URL(window.location.href);
+        const languageCode = url.pathname.split('/')[1]; // Get the language code from the URL path
+        const defaultLanguage = 'en'; // Default language
+        const selectedLanguage = languageCode || defaultLanguage; // If no language code is present, use default language
+
+        // Update the displayed language
+        updatePageLanguage(selectedLanguage);
     });
 });
