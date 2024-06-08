@@ -42,13 +42,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Function to update the displayed language
-    function updatePageLanguage(languageCode) {
-        // Determine the base URL based on the selected language
-        let baseUrl = window.location.origin;
-        if (languageCode !== 'en') {
-            baseUrl += `/${languageCode}`;
-        }
-    }
+  function updatePageLanguage(languageCode) {
+    // Save the selected language in localStorage
+    localStorage.setItem('selectedLanguage', languageCode);
+
+    // Update the displayed language
+    // You need to implement the logic to update the page content in the selected language
+    // This might involve fetching new content via AJAX or reloading the page with new content dynamically
+    // For example, you can replace the current content with language-specific content without changing the URL
+}
 
     // On page load, check if a language is saved in localStorage
     const savedLanguage = localStorage.getItem('selectedLanguage');
