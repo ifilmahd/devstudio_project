@@ -40,8 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-function setLanguage(lang) {
-    const newPath = new URL(lang, window.location.origin).pathname;
-    localStorage.setItem('preferredLanguage', lang);
-    // Remove the redirection part
-}
+    function setLanguage(lang) {
+        const newPath = new URL(lang, window.location.origin).pathname;
+        localStorage.setItem('preferredLanguage', lang);
+        if (window.location.pathname !== newPath) {
+            window.location.href = lang; // Redirect to the selected language page if not already there
+        }
+    }
+});
