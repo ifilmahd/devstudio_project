@@ -42,7 +42,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const iconClass = `fi fi-${languageCode}`;
         dropdownToggle.querySelector('i').className = iconClass;
     }
-
+// Adjust the z-index dynamically
+        if (dropdownMenu.classList.contains('show')) {
+            dropdownMenu.style.zIndex = "9999";
+        } else {
+            dropdownMenu.style.zIndex = "auto";
+        }
+    });
+    
     // On page load, check if a language is saved in localStorage
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
