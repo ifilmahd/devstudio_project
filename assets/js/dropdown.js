@@ -41,12 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 function setLanguage(lang) {
-        const currentLang = window.location.pathname.split('/')[1]; // Extract current language
-        const newLang = lang.split('/')[3]; // Extract selected language
-        if (currentLang !== newLang) {
-            const newUrl = new URL(lang, window.location.origin).href;
-            localStorage.setItem('preferredLanguage', newLang);
-            window.location.href = newUrl; // Redirect to the selected language page
-        }
+    const currentLang = window.location.pathname.split('/')[1] || ''; // Extract current language or set to empty string if not present
+    const newLang = lang.split('/')[3] || ''; // Extract selected language or set to empty string if not present
+    if (currentLang !== newLang) {
+        const newPath = lang.startsWith('/') ? lang : '/' + lang; // Ensure the path starts with a slash
+        const newUrl = new URL(newPath, window.location.origin).href;
+        localStorage.setItem('preferredLanguage', newLang);
+        window.location.href = newUrl; // Redirect to the selected language page
     }
-});
+}
+
