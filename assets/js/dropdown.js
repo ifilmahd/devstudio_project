@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
     const dropdownMenu = document.querySelector('.dropdown-menu');
     const langLinks = dropdownMenu.querySelectorAll('.dropdown-item');
-    
+
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang && window.location.pathname !== new URL(savedLang, window.location.origin).pathname) {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-   langLinks.forEach(link => {
+    langLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const selectedLang = this.getAttribute('href');
@@ -41,5 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 function setLanguage(lang) {
-    window.location.href = lang; // Redirect to the provided URL
+    const newPath = new URL(lang, window.location.origin).pathname;
+    localStorage.setItem('preferredLanguage', lang);
+    // Remove the redirection part
 }
