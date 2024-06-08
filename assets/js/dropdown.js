@@ -1,66 +1,84 @@
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-        let selectedLanguage = 'en'; // Default language is English
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdownToggle = document.querySelector('#currentLanguage');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const languageLinks = document.querySelectorAll('.dropdown-item');
 
-        // Toggle dropdown menu
-        function toggleDropdown() {
-            dropdownMenu.classList.toggle('show');
+    // Event listener for the dropdown toggle
+    dropdownToggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        dropdownMenu.classList.toggle('show');
+
+        // Adjust the z-index dynamically
+        if (dropdownMenu.classList.contains('show')) {
+            dropdownMenu.style.zIndex = "9999";
+        } else {
+            dropdownMenu.style.zIndex = "auto";
         }
+    });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.dropdown')) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
-
-        // Change language function
-        function changeLanguage(lang) {
-            selectedLanguage = lang;
-            // Update URL
-            const urlParams = new URLSearchParams(window.location.search);
-            urlParams.set('lang', lang);
-            window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
-            toggleDropdown(); // Close dropdown after selecting a language
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            dropdownMenu.classList.remove('show');
+            dropdownMenu.style.zIndex = "auto"; // Reset z-index when closing the dropdown
         }
+    });
 
-        // Language change event listeners
-        document.getElementById('en').addEventListener('click', function(event) {
+    // Event listener for language change
+    languageLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
             event.preventDefault();
-            changeLanguage('en');
-        });
-
-        document.getElementById('it').addEventListener('click', function(event) {
-            event.preventDefault();
-            changeLanguage('it');
-        });
-
-        document.getElementById('al').addEventListener('click', function(event) {
-            event.preventDefault();
-            changeLanguage('al');
-        });
-
-        document.getElementById('de').addEventListener('click', function(event) {
-            event.preventDefault();
-            changeLanguage('de');
-        });
-
-        // Check if language is specified in the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
-        if (langParam) {
-            selectedLanguage = langParam;
-        }
-
-        // Set the default selected language in the dropdown
-        document.getElementById(selectedLanguage).classList.add('active');
-
-        // Dropdown toggle click event listener
-        dropdownToggle.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default behavior of the anchor tag
-            toggleDropdown();
+            const languageCode = link.getAttribute('data-lang');
+            changeLanguage(languageCode);
         });
     });
-</script>
+
+    // Function to change language
+    function changeLanguage(languageCode) {
+        // Save the selected language in localStorage
+        localStorage.setItem('selectedLanguage', languageCode);
+
+        // Update the displayed language
+        updatePageLanguage(languageCode);
+
+        // Update the dropdown toggle icon
+        updateDropdownIcon(languageCode);
+    }
+
+    // Function to update the displayed language
+    function updatePageLanguage(languageCode) {
+        // Implement the logic to load and display the page content in the selected language
+        fetch(`/${languageCode}/index.html`)
+            .then(response => response.text())
+            .then(data => {
+                document.documentElement.innerHTML = data;
+                // Reinitialize scripts if necessary
+            });
+
+        // Optionally, update the URL without adding a new entry to the browser's history
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('lang', languageCode);
+        window.history.replaceState({ path: currentUrl.href }, '', currentUrl.href);
+    }
+
+    // Function to update the dropdown icon
+    function updateDropdownIcon(languageCode) {
+        const iconClass = `fi fi-${languageCode}`;
+        dropdownToggle.querySelector('i').className = iconClass;
+    }
+
+    // On page load, check if a language is saved in localStorage
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+        updatePageLanguage(savedLanguage);
+        updateDropdownIcon(savedLanguage);
+    }
+
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const languageCode = urlParams.get('lang') || 'en' 'it' 'al'; // Default to 'en' if no language is set
+        updatePageLanguage(languageCode);
+        updateDropdownIcon(languageCode);
+    });
+});
