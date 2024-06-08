@@ -41,10 +41,5 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 function setLanguage(lang) {
-    const currentLang = window.location.pathname.split('/')[1]; // Extract current language
-    const newLang = lang.split('/')[1]; // Extract selected language
-    if (currentLang !== newLang) {
-        localStorage.setItem('preferredLanguage', newLang);
-        window.location.href = window.location.origin; // Redirect to the homepage
-    }
+    window.location.href = lang; // Redirect to the provided URL
 }
