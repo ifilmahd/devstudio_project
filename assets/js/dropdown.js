@@ -2,7 +2,9 @@
     Language flag icon menu with localStorage
 ================================================== */
 document.addEventListener("DOMContentLoaded", function() {
-    const langLinks = document.querySelectorAll('.dropdown-item');
+    const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const langLinks = dropdownMenu.querySelectorAll('.dropdown-item');
     
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('preferredLanguage');
