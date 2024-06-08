@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
         if (!window.location.pathname.startsWith(savedLangBase)) {
             window.location.href = savedLang;
-        } else if (savedLangBase === '/it/' && currentLangBase === '/') {
-            window.location.reload(); // Refresh the page when switching from default to Italian
         }
     }
 
@@ -58,8 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
         if (!window.location.pathname.startsWith(selectedLangBase)) {
             window.location.href = lang; // Redirect to the selected language page if not already there
-        } else {
-            window.location.href = lang; // Navigate within the same language
         }
     }
 });
