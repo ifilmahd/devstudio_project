@@ -54,7 +54,9 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('preferredLanguage', lang);
         const selectedLangBase = getBaseLanguagePath(lang);
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (!window.location.pathname.startsWith(selectedLangBase)) {
+        if (currentLangBase === '/' && selectedLangBase === '/it/') {
+            window.location.href = lang; // Redirect to the selected language page
+        } else if (!window.location.pathname.startsWith(selectedLangBase)) {
             window.location.href = lang; // Redirect to the selected language page if not already there
         }
     }
