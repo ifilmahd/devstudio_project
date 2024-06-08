@@ -53,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
             return; // Do nothing if the selected language is the same as the current language
         }
         localStorage.setItem('preferredLanguage', lang);
-        if (window.location.pathname !== lang) {
+        const currentLangBase = getBaseLanguagePath(window.location.pathname);
+        if (currentLangBase !== lang) {
             window.location.href = lang; // Redirect to the selected language page
         }
     }
