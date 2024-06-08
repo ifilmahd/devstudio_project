@@ -109,22 +109,21 @@
                 <div class="header-bar-body d-flex align-items-center justify-content-between">
                     <div class="left">
                                                <div class="dropdown">
-        <a data-mdb-dropdown-init class="dropdown-toggle" href="#" id="Dropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-            <i class="fi fi-gb"></i>
+        <a id="currentLanguage" class="dropdown-toggle" href="#" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+            <i class="fi fi-gb"></i> <!-- Default language icon -->
         </a>
-        <ul class="dropdown-menu" aria-labelledby="Dropdown">
+        <ul class="dropdown-menu" aria-labelledby="currentLanguage">
             <li>
-                <a class="dropdown-item" href="#"><i class="fi fi-gb"></i>English <i class="fa fa-check text-success ms-2"></i></a>
-            </li>
-            <li><hr class="dropdown-divider" /></li>
-            <li>
-                <a class="dropdown-item" href="#"><i class="fi fi-it"></i> Italian <sup>Prossimamente</sup></a>
+                <a class="dropdown-item" href="#" data-lang="en"><i class="fi fi-gb"></i> English</a>
             </li>
             <li>
-                <a class="dropdown-item" href="#"><i class="fi fi-al"></i> Albanian <sup>Së Shpejti</sup></a>
+                <a class="dropdown-item" href="#" data-lang="it"><i class="fi fi-it"></i> Italian</a>
             </li>
             <li>
-                <a class="dropdown-item" href="#"><i class="fi fi-de"></i> Deutsch <sup>Bald erhältlich</sup></a>
+                <a class="dropdown-item" href="#" data-lang="al"><i class="fi fi-al"></i> Albanian</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#" data-lang="de"><i class="fi fi-de"></i> Deutsch</a>
             </li>
         </ul>
     </div>
