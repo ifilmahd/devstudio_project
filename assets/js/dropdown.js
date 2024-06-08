@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function setLanguage(lang) {
-        const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (currentLangBase !== lang) {
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang !== lang) {
             localStorage.setItem('preferredLanguage', lang);
             window.location.href = lang; // Redirect to the selected language page
         }
