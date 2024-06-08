@@ -37,10 +37,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-   document.querySelectorAll('.dropdown-item').forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const selectedLang = this.getAttribute('href');
-        setLanguage(selectedLang);
-    });
+
+    function setLanguage(lang) {
+        const newPath = new URL(lang, window.location.origin).pathname;
+        localStorage.setItem('preferredLanguage', lang);
+        if (window.location.pathname !== newPath) {
+            window.location.href = lang; // Redirect to the selected language page if not already there
+        }
+    }
 });
