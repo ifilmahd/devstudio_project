@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (savedLang) {
         const savedLangBase = getBaseLanguagePath(savedLang);
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (savedLangBase !== currentLangBase) {
+        if (!window.location.pathname.startsWith(savedLangBase)) {
             window.location.href = savedLang;
         }
     }
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('preferredLanguage', lang);
         const selectedLangBase = getBaseLanguagePath(lang);
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (currentLangBase !== selectedLangBase) {
+        if (!window.location.pathname.startsWith(selectedLangBase)) {
             window.location.href = lang; // Redirect to the selected language page if not already there
         } else {
             window.location.href = lang; // Navigate within the same language
