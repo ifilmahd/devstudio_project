@@ -1,6 +1,6 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
         const dropdownMenu = document.querySelector('.dropdown-menu');
         let selectedLanguage = 'en'; // Default language is English
 
