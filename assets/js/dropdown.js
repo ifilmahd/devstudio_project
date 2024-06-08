@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Language switching logic
+  // Language switching logic
     languageLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to update the displayed language
     function updatePageLanguage(languageCode) {
-        // Update the URL based on the selected language
-        let newUrl = `https://devstudioal.com/${languageCode}/`;
+        // Determine the base URL based on the selected language
+        let baseUrl = window.location.origin;
+        if (languageCode !== 'en') {
+            baseUrl += `/${languageCode}`;
+        }
 
-        // Update the URL without adding a new entry to the browser's history
-        window.history.replaceState({ path: newUrl }, '', newUrl);
-
-        // Optionally, reload the page to reflect the language change
-        window.location.reload();
+        // Redirect to the appropriate language-specific page
+        window.location.href = `${baseUrl}/about`;
     }
 
     // On page load, check if a language is saved in localStorage
@@ -58,16 +58,4 @@ document.addEventListener("DOMContentLoaded", function() {
     if (savedLanguage) {
         updatePageLanguage(savedLanguage);
     }
-
-    // Handle browser back/forward navigation
-    window.addEventListener('popstate', function() {
-        // Get the language code from the URL
-        const url = new URL(window.location.href);
-        const languageCode = url.pathname.split('/')[1]; // Get the language code from the URL path
-        const defaultLanguage = 'en'; // Default language
-        const selectedLanguage = languageCode || defaultLanguage; // If no language code is present, use default language
-
-        // Update the displayed language
-        updatePageLanguage(selectedLanguage);
-    });
 });
