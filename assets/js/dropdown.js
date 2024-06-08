@@ -3,7 +3,8 @@
 ================================================== */
 document.addEventListener("DOMContentLoaded", function() {
     const langLinks = document.querySelectorAll('.dropdown-item');
-
+    console.log(langLinks); // Log the selected language links to the console
+    
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang && window.location.pathname !== new URL(savedLang, window.location.origin).pathname) {
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-       langLinks.forEach(link => {
+    langLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const selectedLang = this.getAttribute('href');
