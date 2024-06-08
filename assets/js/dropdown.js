@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    langLinks.forEach(link => {
+   langLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const selectedLang = this.getAttribute('href');
@@ -40,12 +40,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-langLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default action of the link
-            const selectedLang = this.getAttribute('href'); // Get the href attribute of the clicked link
-            console.log(selectedLang); // Log the selected language to verify it's correct
-            // Perform any other actions you need here, such as setting the language
-        });
-    });
+    function setLanguage(lang) {
+        const currentLang = window.location.pathname.split('/')[1]; // Extract current language
+        const newLang = lang.split('/')[3]; // Extract selected language
+        if (currentLang !== newLang) {
+            const newUrl = new URL(lang, window.location.origin).href;
+            localStorage.setItem('preferredLanguage', newLang);
+            window.location.href = newUrl; // Redirect to the selected language page
+        }
+    }
 });
