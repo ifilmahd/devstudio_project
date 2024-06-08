@@ -17,8 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if (savedLang) {
         const savedLangBase = getBaseLanguagePath(savedLang);
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (!window.location.pathname.startsWith(savedLangBase)) {
-            window.location.href = savedLang;
+        if (currentLangBase === '/' && savedLangBase === '/it/') {
+            window.location.href = savedLang; // Redirect to the Italian language page
+        } else if (!window.location.pathname.startsWith(savedLangBase)) {
+            window.location.href = savedLang; // Redirect to the saved language page if not already there
         }
     }
 
@@ -54,9 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('preferredLanguage', lang);
         const selectedLangBase = getBaseLanguagePath(lang);
         const currentLangBase = getBaseLanguagePath(window.location.pathname);
-        if (currentLangBase === '/' && selectedLangBase === '/it/') {
-            window.location.href = lang; // Redirect to the selected language page
-        } else if (!window.location.pathname.startsWith(selectedLangBase)) {
+        if (!window.location.pathname.startsWith(selectedLangBase)) {
             window.location.href = lang; // Redirect to the selected language page if not already there
         }
     }
