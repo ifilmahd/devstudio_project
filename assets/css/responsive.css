@@ -2148,7 +2148,7 @@
         width: 30px;
     }
     .hero-empowerment-area .hero-empowerment-right-content .top-content .experience-box {
-        padding: 30px 51px;
+        padding: 14px 30px;
     }
     .hero-empowerment-area .hero-empowerment-right-content .top-content .experience-box .experience-body img {
         width: 33px;
@@ -3656,6 +3656,15 @@
     .case-studio-area .case-studio .case-studio-tab-content .case-studio-body .left{
         flex-direction: column;
     }
+}
+@media (max-width: 360px) {
+   .hero-empowerment-area .hero-empowerment-right-content .top-content .experience-box
+{
+    position: absolute;
+    width: 100%;
+    padding-top: 1px;
+    padding-bottom: 14px;
+    background-color: rgba(237, 237, 233, 0.66);
 }
 @media (max-width: 585px) {
     .header-bar .header-bar-body {
