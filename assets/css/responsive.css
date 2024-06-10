@@ -3665,8 +3665,8 @@
     padding-top: 1px;
     padding-bottom: 14px;
     background-color: rgba(237, 237, 233, 0.66);
-}
-@media (max-width: 585px) {
+} }
+@media (max-width: 585px)  {
     .header-bar .header-bar-body {
         gap: 20px;
     }
