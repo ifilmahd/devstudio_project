@@ -1,26 +1,14 @@
-name: Update Cache-Control Headers
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Update Cache-Control Headers
-        run: |
-          find . -name '*.html' -exec sed -i 's/<head>/<head>\n<meta http-equiv="Cache-Control" content="max-age=86400">/' {} +
-          find . -name '*.css' -exec sed -i '1i /* Cache-Control: max-age=31536000, public */' {} +
-          find . -name '*.js' -exec sed -i '1i // Cache-Control: max-age=31536000, public' {} +
-
-      - name: Commit Changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -am "Update Cache-Control headers" || exit 0
-          git push
+            - name: Cache-Always
+  # You may pin to the exact commit or the version.
+  # uses: husarnet/cache@dec09ab84373609111714d99b6fceca6c3739990
+  uses: husarnet/cache@v2.always
+  with:
+    # A list of files, directories, and wildcard patterns to cache and restore
+    path: 
+    # An explicit key for restoring and saving the cache
+    key: 
+    # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
+    restore-keys: # optional
+    # The chunk size used to split up large files during upload, in bytes
+    upload-chunk-size: # optional
+          
