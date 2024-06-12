@@ -1,0 +1,29 @@
+name: Update Cache-Control Headers
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Update Cache-Control Headers
+        run: |
+          find . -name '*.html' -exec sed -i 's/<head>/<head>\n<meta http-equiv="Cache-Control" content="max-age=86400">/' {} +
+          find . -name '*.css' -exec sed -i '1i /* Cache-Control: max-age=31536000, public */' {} +
+          find . -name '*.js' -exec sed -i '1i // Cache-Control: max-age=31536000, public' {} +
+          find . -name '*.png' -exec sed -i '1i # Cache-Control: max-age=31536000' {} +
+          find . -name '*.jpg' -exec sed -i '1i # Cache-Control: max-age=31536000' {} +
+          find . -name '*.svg' -exec sed -i '1i <!-- Cache-Control: max-age=31536000 -->' {} +
+
+      - name: Commit Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Update Cache-Control headers" || exit 0
+          git push
