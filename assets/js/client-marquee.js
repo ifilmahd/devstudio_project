@@ -1,4 +1,5 @@
-
+// File: script.js
+// Cache-Control: max-age=31536000, public
 let loops = gsap.utils.toArray('.clients-marquee').map((line, i) => {
     const links = line.querySelectorAll(".clients-marquee .client-logo"),
     tl = horizontalLoop(links, {
