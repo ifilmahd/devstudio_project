@@ -157,7 +157,6 @@ img {
 .custom-container {
     max-width: 1550px;
     margin: 0 auto;
-    padding: 0 15px;
 }
 .custom-row {
     display: flex;
@@ -435,8 +434,7 @@ img {
 
 /* Header */
 .header-area {
-    border-bottom: 1px solid var(--gray);
-    /* padding: 26px 0; */
+    box-shadow: 0 1px 3px #070e271f
     position: sticky;
     top: 0;
     z-index: 1024;
@@ -527,7 +525,7 @@ img {
     color: #1351D8;
 }
 .header-area .navbar-wrapper > ul > li {
-    line-height: 106px;
+    line-height: 95px;
 }
 .header-area .navbar-wrapper ul li > .dropdown-menu {
     display: block;
