@@ -1908,7 +1908,7 @@ img {
     flex: 1;
 }
 .service-card {
-    padding: 77px 34px 56px 34px;
+    padding: 32px;
     position: relative;
 }
 .service-card img {
