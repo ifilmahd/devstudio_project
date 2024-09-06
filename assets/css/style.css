@@ -2195,8 +2195,7 @@ img {
     object-fit: cover;
 }
 .case-studio-area .case-studio .case-studio-tab-content .case-studio-body .right {
-    width: 518px;
-    flex: none;
+    flex: auto;
 }
 .case-studio-area .case-studio .case-studio-tab-content .case-studio-body .right .case-studio-contents {
     background: #ffffff;
