@@ -2083,7 +2083,7 @@ img {
 }
 .services-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 /* Service 4 */
 .service4-area {
