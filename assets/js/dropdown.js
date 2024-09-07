@@ -1,47 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    const langLinks = dropdownMenu.querySelectorAll('.dropdown-item');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    // Load saved language from localStorage
-    const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang && window.location.pathname !== new URL(savedLang, window.location.origin).pathname) {
-        window.location.href = savedLang;
-    }
+            dropdownToggle.addEventListener('click', function(event) {
+                event.preventDefault();
+                dropdownMenu.classList.toggle('show');
+            });
 
-    dropdownToggle.addEventListener('click', function(event) {
-        event.preventDefault();
-        dropdownMenu.classList.toggle('show');
-        
-        // Adjust the z-index dynamically
-        if (dropdownMenu.classList.contains('show')) {
-            dropdownMenu.style.zIndex = "9999";
-        } else {
-            dropdownMenu.style.zIndex = "auto";
-        }
-    });
-
-    langLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const selectedLang = this.getAttribute('href');
-            setLanguage(selectedLang);
+            document.addEventListener('click', function(event) {
+                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
         });
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.dropdown')) {
-            dropdownMenu.classList.remove('show');
-            dropdownMenu.style.zIndex = "auto"; // Reset z-index when closing the dropdown
-        }
-    });
-
-    function setLanguage(lang) {
-        const newPath = new URL(lang, window.location.origin).pathname;
-        localStorage.setItem('preferredLanguage', lang);
-        if (window.location.pathname !== newPath) {
-            window.location.href = lang; // Redirect to the selected language page if not already there
-        }
-    }
-});
+    </script>
