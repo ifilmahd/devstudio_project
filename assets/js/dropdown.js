@@ -1,5 +1,6 @@
-// File: script.js
-// Cache-Control: max-age=31536000, public
+/* ==================================================
+    Language flag icon menu with localStorage
+================================================== */
 document.addEventListener("DOMContentLoaded", function() {
     const dropdownToggle = document.querySelector('[data-mdb-dropdown-init]');
     const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -7,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang && window.location.pathname !== new URL(savedLang, window.location.origin).pathname) {
+        window.location.href = savedLang;
+    }
 
     dropdownToggle.addEventListener('click', function(event) {
         event.preventDefault();
@@ -37,6 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function setLanguage(lang) {
+        const newPath = new URL(lang, window.location.origin).pathname;
         localStorage.setItem('preferredLanguage', lang);
+        if (window.location.pathname !== newPath) {
+            window.location.href = lang; // Redirect to the selected language page if not already there
+        }
     }
 });
