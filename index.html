@@ -120,6 +120,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     <!-- ========== Google AdSense ========== -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1669369390377470" crossorigin="anonymous"></script>
+     
+      <!-- redirect to german browser language -->
+    <script type="text/javascript">
+        window.onload = function() {
+            var userLang = navigator.language || navigator.userLanguage; 
+            if (userLang.startsWith('de')) {
+                window.location.href = "https://devstudial.com/de";
+            }
+        };
+    </script>
 </head>
 <meta name='dmca-site-verification' content='eU9KdytNQVRMN2tDRTljWEI2WFFLUT090' />
 <body>
