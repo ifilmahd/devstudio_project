@@ -1,17 +1,27 @@
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropdownToggle = document.querySelector('.dropdown-toggle');
-            const dropdownMenu = document.querySelector('.dropdown-menu');
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to handle language switch
+    function switchLanguage(language) {
+        // Get the current URL
+        let currentUrl = window.location.href;
 
-            dropdownToggle.addEventListener('click', function(event) {
-                event.preventDefault();
-                dropdownMenu.classList.toggle('show');
-            });
+        // Define the base URL for each language
+        let baseUrlEnglish = 'https://devstudioal.com/';
+        let baseUrlGerman = 'https://devstudioal.com/de/';
 
-            document.addEventListener('click', function(event) {
-                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                    dropdownMenu.classList.remove('show');
-                }
-            });
+        // Determine which URL to redirect to based on selected language
+        let newUrl = language === 'de' ? baseUrlGerman : baseUrlEnglish;
+
+        // Redirect to the selected language URL
+        window.location.href = newUrl;
+    }
+
+    // Add event listeners to the dropdown items
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function () {
+            let language = this.href.includes('/de/') ? 'de' : 'en';
+            switchLanguage(language);
         });
-    </script>
+    });
+});
+</script>
