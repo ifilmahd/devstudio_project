@@ -15,23 +15,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Update the language icon based on the current URL
+    // Update the language icon based on the selected language stored in localStorage
     function updateLanguageIcon() {
-        const currentURL = window.location.href;
-        if (currentURL.includes('/de/')) {
+        const selectedLanguage = localStorage.getItem('selectedLanguage');
+        if (selectedLanguage === 'de') {
             currentLanguageIcon.className = 'fi fi-de'; // German flag
         } else {
             currentLanguageIcon.className = 'fi fi-gb'; // English flag
         }
     }
 
-    // Change language on dropdown item click
+    // Handle language change
     document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', function () {
-            window.location.href = this.href; // Navigate to the selected language URL
+        item.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default navigation
+
+            // Store the selected language in localStorage
+            const selectedLanguage = this.getAttribute('data-language');
+            localStorage.setItem('selectedLanguage', selectedLanguage);
+
+            // Update the URL based on the selected language
+            if (selectedLanguage === 'de') {
+                window.location.href = 'https://devstudioal.com/de/'; // German version
+            } else {
+                window.location.href = 'https://devstudioal.com/'; // English version
+            }
         });
     });
 
-    // Initialize the language icon based on the current URL
+    // Initialize the language icon based on the selected language
     updateLanguageIcon();
 });
