@@ -1,4 +1,3 @@
-<script>
 document.addEventListener('DOMContentLoaded', function () {
     // Add event listeners to dropdown items
     document.querySelectorAll('.dropdown-item').forEach(item => {
@@ -9,4 +8,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-</script>
