@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/language.css">
     <!-- ========== End Stylesheet ========== -->
 
 
@@ -50,27 +51,19 @@
             <div class="custom-container">
                 <div class="header-bar-body d-flex align-items-center justify-content-between">
                     <div class="left">
-                                               <div class="dropdown">
-    <a data-mdb-dropdown-init class="dropdown-toggle" href="#" id="Dropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-        <i class="fi fi-gb"></i>
-    </a>
-
-    <ul class="dropdown-menu" aria-labelledby="Dropdown">
-        <li>
-            <a class="dropdown-item" href="#"><i class="flag-united-kingdom flag"></i>English <i class="fa fa-check text-success ms-2"></i></a>
-        </li>
-        <li><hr class="dropdown-divider" /></li>
-        <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-it"></i> Italian <sup>Prossimamente</sup></a>
-        </li>
-        <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-al"></i> Albanian <sup>Së Shpejti</sup></a>
-        </li>
-        <li>
-            <a class="dropdown-item" href="#"><i class="fi fi-de"></i> Deutsch <sup>Bald erhältlich</sup></a>
-        </li>
-    </ul>
-</div>
+                                              <div class="language-dropdown">
+        <button class="dropdown-toggle" id="languageDropdown" aria-expanded="false">
+            <i class="fi fi-gb" id="currentLanguageIcon"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+                <a class="dropdown-item" href="https://devstudioal.com/de/" data-language="de">
+                    <i class="fi fi-de"></i> Deutsch
+                </a>
+            </li>
+        </ul>
+    </div>
                     </div>
                     <div class="right">
                         <p>
@@ -454,7 +447,7 @@
     <script src="../assets/js/theme-custom.js"></script>
     <script src="../assets/js/form1.js"></script>
     <script src="../assets/js/subscribe-form.js"></script>
-  <script src="../assets/js/dropdown.js"></script>
+  <script src="../assets/js/language.js"></script>
       <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
 </body>
 
