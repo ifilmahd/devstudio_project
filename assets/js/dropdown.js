@@ -2,9 +2,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Function to handle language switch
     function switchLanguage(language) {
-        // Get the current URL
-        let currentUrl = window.location.href;
-
         // Define the base URL for each language
         let baseUrlEnglish = 'https://devstudioal.com/';
         let baseUrlGerman = 'https://devstudioal.com/de/';
@@ -18,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add event listeners to the dropdown items
     document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', function () {
+        item.addEventListener('click', function (event) {
+            event.preventDefault();  // Prevent the default action of the anchor tag
             let language = this.href.includes('/de/') ? 'de' : 'en';
             switchLanguage(language);
         });
