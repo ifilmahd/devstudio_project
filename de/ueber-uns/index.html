@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/language.css">
     <!-- ========== End Stylesheet ========== -->
 </head>
 
@@ -52,22 +53,19 @@
             <div class="custom-container">
                 <div class="header-bar-body d-flex align-items-center justify-content-between">
                     <div class="left">
-                                               <div class="dropdown">
-    <a data-mdb-dropdown-init class="dropdown-toggle" href="#" id="Dropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-        <i class="fi fi-de"></i>
-    </a>
-
-    <ul class="dropdown-menu" aria-labelledby="Dropdown">
-        <li>
-            <a class="dropdown-item" href="https://devstudioal.com/de/"><i class="flag-united-kingdom flag"></i>Deutsch <i class="fa fa-check text-success ms-2"></i></a>
-        </li>
-        <li><hr class="dropdown-divider" /></li>
-        <li>
-            <a class="dropdown-item" href="https://devstudioal.com/"><i class="fi fi-it"></i> English </a>
-        </li>
-    </ul>
-</div>
-
+                                               <div class="language-dropdown">
+        <button class="dropdown-toggle" id="languageDropdown" aria-expanded="false">
+            <i class="fi fi-de" id="currentLanguageIcon"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+                <a class="dropdown-item" href="https://devstudioal.com/" data-language="gb">
+                    <i class="fi fi-gb"></i> Englisch
+                </a>
+            </li>
+        </ul>
+    </div>
                     </div>
                     <div class="right">
                         <p>
@@ -476,7 +474,7 @@
     <script src="/assets/js/theme-custom.js"></script>
     <script src="/assets/js/form1.js"></script>
     <script src="/assets/js/subscribe-form.js"></script>
-    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/language.js"></script>
     <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
 </body>
 
