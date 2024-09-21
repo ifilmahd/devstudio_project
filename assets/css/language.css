@@ -40,200 +40,49 @@
 .dropdown-menu .dropdown-divider {
     margin: 0;
 }
-/* Chatbot Toggle Button */
+
+/* Modernize the Chatbot UI */
 #chatToggleBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    font-size: 20px;
+    background-color: #00d664;
+    font-size: 22px;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Chatbot Container */
+/* Chatbot Container - Make it more modern */
 #chatbot {
-    position: fixed;
-    bottom: 0;
-    right: 20px;
-    width: 350px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    font-family: Arial, sans-serif;
-    z-index: 1000;
-    display: none; /* Initially hidden */
-}
-
-body {
-    font-family: Arial, sans-serif;
-}
-
-.chat-widget {
-    border: 1px solid #ccc;
     border-radius: 10px;
-    width: 300px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
+    background-color: #f0f2f5;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.chat-header {
-    background: #0078d4;
-    color: #fff;
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    display: flex;
-    justify-content: space-between;
+/* Chatbot Header - Softer appearance */
+#chatbotHeader {
+    background-color: #00d664;
+    border-radius: 10px 10px 0 0;
 }
 
-.chat-body {
-    padding: 10px;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.message {
+/* Modern Quick Replies */
+.quickReplies button {
+    background-color: #00d664;
+    padding: 12px;
+    border-radius: 8px;
     margin: 5px 0;
 }
 
-.bot-message {
-    background: #e1f5fe;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 80%;
-}
-
-.user-message {
-    background: #c8e6c9;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 80%;
-    align-self: flex-end;
-}
-
-.chat-footer {
-    display: flex;
-    padding: 5px;
-}
-
-.chat-footer input {
-    flex: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.chat-footer button {
-    background: #0078d4;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-#chatToggleBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    background-color: #0078d4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-/* Chatbot Header */
-#chatbotHeader {
-    background-color: #007bff;
-    color: white;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Chatbot Body */
-#chatbotBody {
-    height: 300px;
-    overflow-y: scroll;
-    padding: 15px;
-}
-
-/* Chatbox */
-#chatbox {
-    padding-bottom: 10px;
-}
-
-/* Messages */
-.message {
-    margin-bottom: 15px;
-}
-
-.botMessage {
-    background-color: #eef1f7;
-    padding: 10px;
-    border-radius: 10px;
-    color: #333;
-}
-
-.userMessage {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: right;
-    align-self: flex-end;
-}
-
-/* Quick Replies */
-.quickReplies {
-    margin: 10px 0;
-}
-
-.quickReplies button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-right: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* User Input */
+/* Modernize input area */
 #userInput {
-    display: flex;
-    padding: 10px;
-    background-color: #f1f1f1;
+    background-color: #e9ecef;
+    padding: 15px;
 }
 
 #inputText {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: none;
 }
 
 #sendBtn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    margin-left: 10px;
-    cursor: pointer;
+    background-color: #00d664;
+    border-radius: 10px;
 }
