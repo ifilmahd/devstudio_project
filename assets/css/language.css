@@ -42,47 +42,86 @@
 }
 
 /* Modernize the Chatbot UI */
+/* Chatbot Toggle Button - Modernized */
 #chatToggleBtn {
-    background-color: #00d664;
-    font-size: 22px;
-    padding: 20px;
-    border-radius: 50px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00d664;  /* Changed from blue to green */
+    color: white;
+    border: none;
+    padding: 20px;  /* Increased padding */
+    border-radius: 50px;  /* More rounded button */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);  /* Softer shadow */
+    z-index: 1000;
+    font-size: 22px;  /* Larger text */
 }
 
-/* Chatbot Container - Make it more modern */
+/* Chatbot Container - Modernized */
 #chatbot {
-    border-radius: 10px;
-    background-color: #f0f2f5;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 350px;
+    background-color: #f0f2f5;  /* Lighter background */
+    border: 1px solid #ddd;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;  /* Rounded corners */
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    display: none; /* Initially hidden */
 }
 
-/* Chatbot Header - Softer appearance */
+/* Chatbot Header - Updated style */
 #chatbotHeader {
-    background-color: #00d664;
-    border-radius: 10px 10px 0 0;
-}
-
-/* Modern Quick Replies */
-.quickReplies button {
-    background-color: #00d664;
-    padding: 12px;
-    border-radius: 8px;
-    margin: 5px 0;
-}
-
-/* Modernize input area */
-#userInput {
-    background-color: #e9ecef;
+    background-color: #00d664;  /* Changed from blue to green */
+    color: white;
     padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;  /* Rounded top corners */
+}
+
+/* Quick Replies - Modernized */
+.quickReplies {
+    margin: 10px 0;
+}
+
+.quickReplies button {
+    background-color: #00d664;  /* Changed from blue to green */
+    color: white;
+    border: none;
+    padding: 12px;  /* Increased padding */
+    margin-right: 5px;
+    margin-top: 5px;  /* Added space between buttons */
+    border-radius: 8px;  /* More rounded corners */
+    cursor: pointer;
+}
+
+/* User Input - Modernized */
+#userInput {
+    display: flex;
+    padding: 15px;  /* Increased padding */
+    background-color: #e9ecef;  /* Lighter background */
 }
 
 #inputText {
-    border-radius: 10px;
-    border: none;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;  /* Rounded input field */
 }
 
 #sendBtn {
-    background-color: #00d664;
-    border-radius: 10px;
+    background-color: #00d664;  /* Changed from blue to green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;  /* Rounded button */
+    margin-left: 10px;
+    cursor: pointer;
 }
