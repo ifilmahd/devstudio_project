@@ -902,27 +902,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <p>&copy; 2024 All rights reserved by <a href="https://www.linkedin.com/company/devstudioal" target="_blank">DevStudioAl</a> with NUIS: M44130002J</p>
                     </div>
                 </div>
-            </div>  <!-- Chatbot Container in HTML -->
-<div id="chatbot">
-  <div id="chatbotHeader">
-    <h4>👋 Welcome to DevStudioAL</h4>
-    <span id="closeChat" onclick="closeChat()">×</span>
-  </div>
-  <div id="chatbotBody">
-    <div id="chatbox">
-      <div class="message botMessage">Hello! I’m your assistant. How can I help you today?</div>
-      <div class="quickReplies">
-        <button onclick="quickReply('Tell me about your services')">📄 Our Services</button>
-        <button onclick="quickReply('What are your prices?')">💲 Pricing</button>
-        <button onclick="quickReply('Can I book a consultation?')">📅 Book Consultation</button>
-      </div>
+            </div>  
+            <!-- Chatbot Toggle Button -->
+    <button id="chatToggleBtn" onclick="toggleChat()">💬 Chat with us</button>
+
+    <!-- Chatbot -->
+    <div id="chatbot" style="display: none;">
+        <div id="chatbotHeader">
+            <h4>👋 Welcome to DevStudioAL</h4>
+            <span id="closeChat" onclick="closeChat()">×</span>
+        </div>
+        <div id="chatbotBody">
+            <div id="chatbox">
+                <div class="message botMessage">Hello! I’m your assistant. How can I help you today?</div>
+                <div class="quickReplies">
+                    <button onclick="quickReply('Tell me about your services')">📄 Our Services</button>
+                    <button onclick="quickReply('What are your prices?')">💲 Pricing</button>
+                    <button onclick="quickReply('Can I book a consultation?')">📅 Book Consultation</button>
+                </div>
+            </div>
+        </div>
+        <div id="userInput">
+            <input type="text" id="inputText" placeholder="Type your message here...">
+            <button id="sendBtn" onclick="sendMessage()">Send</button>
+        </div>
     </div>
-  </div>
-  <div id="userInput">
-    <input type="text" id="inputText" placeholder="Type your message here...">
-    <button id="sendBtn" onclick="sendMessage()">Send</button>
-  </div>
-</div>
         </footer>
     </main>
 
