@@ -31,76 +31,43 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Add messa// Add message to chatbox
-function addMessageToChatbox(messageType, messageText) {
-    let messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", messageType);
-    messageDiv.textContent = messageText;
-    document.getElementById("chatbox").appendChild(messageDiv);
-    
-    // Use a small delay to ensure the DOM is updated before scrolling
-    setTimeout(scrollToBottom, 100);
-}
+    // Add message to chatbox
+    function addMessageToChatbox(messageType, messageText) {
+        let messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", messageType);
+        messageDiv.textContent = messageText;
+        document.getElementById("chatbox").appendChild(messageDiv);
+        
+        // Scroll to the bottom after adding a message
+        setTimeout(scrollToBottom, 100);
+    }
 
-// Scroll to bottom function
-function scrollToBottom() {
-    let chatbox = document.getElementById("chatbox");
-    chatbox.scrollTop = chatbox.scrollHeight;
-}
+    // Scroll to bottom function
+    function scrollToBottom() {
+        let chatbox = document.getElementById("chatbox");
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
 
-    // Quick reply function
-    window.quickReply = function (message) {
-        document.getElementById("inputText").value = message;
-        sendMessage();
-    };
-
-    // Generate bot reply
+    // Generate bot reply function
     function generateBotReply(userMessage) {
         let botReply = "Sorry, I don't understand that. Can you please clarify?";
         
         if (userMessage.toLowerCase().includes("services")) {
-            botReply = "We offer modern websites, UI/UX design, and e-commerce solutions. Everything is customized for your needs.";
-            addQuickReplies(["Contact via WhatsApp", "Discuss Details"]);
+            botReply = "We offer custom websites, design services, and e-commerce solutions! Here are more details:";
         } else if (userMessage.toLowerCase().includes("prices") || userMessage.toLowerCase().includes("pricing")) {
-            botReply = "Our pricing is flexible and designed to fit your needs. Please contact us directly for a good price!";
-            addQuickReplies(["Contact via WhatsApp"]);
+            botReply = "We can discuss prices! Just let me know what you're looking for.";
         } else if (userMessage.toLowerCase().includes("book")) {
-            botReply = "To book a consultation, please contact us via WhatsApp or provide your email.";
+            botReply = "To book a consultation, please provide your email:";
             captureEmailForm();
         } else if (userMessage.toLowerCase().includes("thank")) {
             botReply = "You're welcome! Let me know if you need further assistance.";
         }
-        
+
         addMessageToChatbox("botMessage", botReply);
     }
 
-    // Add quick replies
-    function addQuickReplies(options) {
-        let quickReplyDiv = document.createElement("div");
-        quickReplyDiv.classList.add("quickReplies");
-        
-        options.forEach(option => {
-            let button = document.createElement("button");
-            button.textContent = option;
-            if (option === "Contact via WhatsApp") {
-                button.onclick = function () { window.openWhatsApp(); };
-            } else {
-                button.onclick = function () { window.quickReply(option); };
-            }
-            quickReplyDiv.appendChild(button);
-        });
-
-        document.getElementById("chatbox").appendChild(quickReplyDiv);
-        scrollToBottom();
-    }
-
-    // Open WhatsApp function
-    window.openWhatsApp = function () {
-        window.open("https://wa.me/447537168000", "_blank");
-    };
-
     // Capture email form
-    window.captureEmailForm = function () {
+    function captureEmailForm() {
         let emailForm = `
             <div>
                 <input type="email" id="emailInput" placeholder="Enter your email" required>
@@ -113,8 +80,8 @@ function scrollToBottom() {
         scrollToBottom();
 
         // Bind email submission event
-        document.getElementById("submitEmailBtn").addEventListener("click", window.submitEmail);
-    };
+        document.getElementById("submitEmailBtn").addEventListener("click", submitEmail);
+    }
 
     // Submit email function
     window.submitEmail = function () {
