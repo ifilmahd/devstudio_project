@@ -12,13 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close the chatbot
     window.closeChat = function () {
-        document.getElementById("chatbot").style.display = "none";
-        document.getElementById("chatToggleBtn").style.display = "block";  // Show the toggle button again when chatbot is closed
+        let chatbot = document.getElementById("chatbot");
+        let chatToggleBtn = document.getElementById("chatToggleBtn");
+        chatbot.style.display = "none";
+        chatToggleBtn.style.display = "block";  // Show the toggle button again when chatbot is closed
     };
 
     // Send message function
     window.sendMessage = function () {
-        let userMessage = document.getElementById("inputText").value;
+        let userMessage = document.getElementById("inputText").value.trim();
         if (userMessage) {
             addMessageToChatbox("userMessage", userMessage);
             document.getElementById("inputText").value = "";
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         options.forEach(option => {
             let button = document.createElement("button");
             button.textContent = option;
-            button.onclick = function () { quickReply(option); };
+            button.onclick = function () { window.quickReply(option); };
             quickReplyDiv.appendChild(button);
         });
 
@@ -86,12 +88,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Capture email form
-    function captureEmailForm() {
+    window.captureEmailForm = function () {
         let emailForm = `
-          <div>
-            <input type="email" id="emailInput" placeholder="Enter your email">
-            <button id="submitEmailBtn">Submit</button>
-          </div>
+            <div>
+                <input type="email" id="emailInput" placeholder="Enter your email" required>
+                <button id="submitEmailBtn">Submit</button>
+            </div>
         `;
         let formDiv = document.createElement("div");
         formDiv.innerHTML = emailForm;
@@ -99,16 +101,28 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollToBottom();
 
         // Bind email submission event
-        document.getElementById("submitEmailBtn").addEventListener("click", submitEmail);
-    }
+        document.getElementById("submitEmailBtn").addEventListener("click", window.submitEmail);
+    };
 
     // Submit email function
-    function submitEmail() {
-        let email = document.getElementById("emailInput").value;
+    window.submitEmail = function () {
+        let emailInput = document.getElementById("emailInput");
+        let email = emailInput.value.trim();
         if (email) {
-            localStorage.setItem("userEmail", email);
-            addMessageToChatbox("userMessage", email);
-            addMessageToChatbox("botMessage", "Thank you! We'll get in touch with you soon.");
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(email)) {
+                localStorage.setItem("userEmail", email);
+                addMessageToChatbox("userMessage", email);
+                addMessageToChatbox("botMessage", "Thank you! We'll get in touch with you soon.");
+                
+                // Optionally, clear the form
+                emailInput.value = "";
+            } else {
+                addMessageToChatbox("botMessage", "Please enter a valid email address.");
+            }
+        } else {
+            addMessageToChatbox("botMessage", "Email field cannot be empty.");
         }
-    }
+    };
 });
