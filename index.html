@@ -904,29 +904,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
             </div>  
              <!-- Chatbot Toggle Button -->
-    <button id="chatToggleBtn" onclick="toggleChat()">💬 Chat with us</button>
-
-    <!-- Chatbot Container -->
-    <div id="chatbot" style="display: none;">
-        <div id="chatbotHeader">
-            <h4>👋 Welcome to DevStudioAL</h4>
-            <span id="closeChat" onclick="closeChat()">×</span>
+    <div id="chatbot" class="chat-widget" style="display: none;">
+        <div class="chat-header">
+            <h4>Customer Support</h4>
+            <button class="close-chat" onclick="closeChat()">×</button>
         </div>
-        <div id="chatbotBody">
-            <div id="chatbox">
-                <div class="message botMessage">Hello! I’m your assistant. How can I help you today?</div>
-                <div class="quickReplies">
-                    <button onclick="quickReply('Tell me about your services')">📄 Our Services</button>
-                    <button onclick="quickReply('What are your prices?')">💲 Pricing</button>
-                    <button onclick="quickReply('Can I book a consultation?')">📅 Book Consultation</button>
-                </div>
+        <div id="chatbody" class="chat-body">
+            <div class="message bot-message">
+                <p>👋 Hi there! Welcome to our service. How can I assist you today?</p>
             </div>
         </div>
-        <div id="userInput">
-            <input type="text" id="inputText" placeholder="Type your message here...">
+        <div class="chat-footer">
+            <input type="text" id="inputText" placeholder="Type your message..." />
             <button id="sendBtn" onclick="sendMessage()">Send</button>
         </div>
     </div>
+    
+    <button id="chatToggleBtn" onclick="toggleChat()">Chat with us!</button>
         </footer>
     </main>
 
