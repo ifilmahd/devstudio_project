@@ -40,3 +40,93 @@
 .dropdown-menu .dropdown-divider {
     margin: 0;
 }
+<!-- Chatbot CSS -->
+  #chatbot {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 350px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+  }
+
+  #chatbotHeader {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #chatbotBody {
+    height: 300px;
+    overflow-y: scroll;
+    padding: 15px;
+  }
+
+  #chatbox {
+    padding-bottom: 10px;
+  }
+
+  .message {
+    margin-bottom: 15px;
+  }
+
+  .botMessage {
+    background-color: #eef1f7;
+    padding: 10px;
+    border-radius: 10px;
+    color: #333;
+  }
+
+  .userMessage {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: right;
+    align-self: flex-end;
+  }
+
+  .quickReplies {
+    margin: 10px 0;
+  }
+
+  .quickReplies button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #userInput {
+    display: flex;
+    padding: 10px;
+    background-color: #f1f1f1;
+  }
+
+  #inputText {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  #sendBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
