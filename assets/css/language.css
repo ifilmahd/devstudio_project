@@ -90,7 +90,7 @@
 
 /* Chatbot Body */
 #chatbotBody {
-    height: 300px; /* Set a fixed height for the chat body */
+    height: 450px; /* Set a fixed height for the chat body */
     overflow-y: auto; /* Enable scrolling */
     padding: 15px;
     background-color: #f8f9fa;
@@ -99,11 +99,12 @@
 
 /* Chatbox - Keep the messages contained */
 #chatbox {
-    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
-    max-width: 100%; /* Constrain the chat messages within the container */
-    overflow-x: hidden; /* Disable horizontal scrolling */
+    max-width: 100%;
+    overflow-y: auto; /* Ensure vertical scrolling */
+    height: 100%; /* Ensure the chatbox fills the available space */
+    scroll-behavior: smooth; /* Smooth scrolling when new messages are added */
 }
 
 /* Messages */
