@@ -46,15 +46,15 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #00d664; /* Modern green color */
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 18px; /* Good size for button */
-    border-radius: 50%; /* Round button */
+    padding: 15px;
+    border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    font-size: 20px; /* Larger icon size */
+    font-size: 20px;
 }
 
 /* Chatbot Container */
@@ -62,9 +62,9 @@
     position: fixed;
     bottom: 0;
     right: 20px;
-    width: 350px;
-    max-height: 500px;
-    background-color: #ffffff; /* Bright background */
+    width: 350px; /* Fixed width */
+    max-height: 500px; /* Set a max height */
+    background-color: #ffffff;
     border: 1px solid #ddd;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     border-radius: 10px; /* Smooth corners */
@@ -73,11 +73,12 @@
     display: none; /* Initially hidden */
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden; /* Prevent content from expanding outside the box */
 }
 
 /* Chatbot Header */
 #chatbotHeader {
-    background-color: #00d664; /* Header with the same modern green */
+    background-color: #007bff;
     color: white;
     padding: 15px;
     font-size: 16px;
@@ -85,22 +86,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 10px 10px 0 0;
 }
 
 /* Chatbot Body */
 #chatbotBody {
-    height: 300px;
-    overflow-y: auto;
+    height: 300px; /* Set a fixed height for the chat body */
+    overflow-y: auto; /* Enable scrolling */
     padding: 15px;
     background-color: #f8f9fa;
+    box-sizing: border-box; /* Include padding in height */
 }
 
-/* Chatbox */
+/* Chatbox - Keep the messages contained */
 #chatbox {
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
+    max-width: 100%; /* Constrain the chat messages within the container */
+    overflow-x: hidden; /* Disable horizontal scrolling */
 }
 
 /* Messages */
@@ -108,7 +111,8 @@
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
-    max-width: 80%;
+    max-width: 80%; /* Ensure messages don't exceed 80% of the container width */
+    word-wrap: break-word; /* Break long words to avoid overflow */
 }
 
 .botMessage {
@@ -118,7 +122,7 @@
 }
 
 .userMessage {
-    background-color: #00d664;
+    background-color: #007bff;
     color: white;
     align-self: flex-end;
     text-align: right;
@@ -130,14 +134,16 @@
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    max-width: 100%; /* Ensure quick replies stay within the container */
 }
 
 .quickReplies button {
-    background-color: #00d664;
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -145,23 +151,37 @@
 #userInput {
     display: flex;
     padding: 10px;
-    background-color: #e9ecef;
-    border-top: 1px solid #ddd;
+    background-color: #f1f1f1;
 }
 
 #inputText {
     flex: 1;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 5px;
+    max-width: 80%; /* Ensure input field stays within the container */
+    box-sizing: border-box; /* Prevent overflowing */
 }
 
 #sendBtn {
-    background-color: #00d664;
+    background-color: #007bff;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
+}
+
+/* Scroll to bottom function */
+#chatbox {
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Make sure chatbox content doesn't stretch */
+.message {
+    max-width: 80%;
+    word-break: break-word;
 }
