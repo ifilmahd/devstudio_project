@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-   // Toggle the chatbot visibility
+    // Toggle the chatbot visibility
     window.toggleChat = function () {
         let chatbot = document.getElementById("chatbot");
         let chatToggleBtn = document.getElementById("chatToggleBtn");
@@ -8,15 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
             chatbot.style.display = "block";
             chatToggleBtn.style.display = "none";  // Hide the toggle button when the chatbot is visible
         }
-    }
+    };
 
+    // Close the chatbot
     window.closeChat = function () {
         document.getElementById("chatbot").style.display = "none";
         document.getElementById("chatToggleBtn").style.display = "block";  // Show the toggle button again when chatbot is closed
-    }
+    };
 
     // Send message function
-    function sendMessage() {
+    window.sendMessage = function () {
         let userMessage = document.getElementById("inputText").value;
         if (userMessage) {
             addMessageToChatbox("userMessage", userMessage);
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 generateBotReply(userMessage);
             }, 800);
         }
-    }
+    };
 
     // Add message to chatbox
     function addMessageToChatbox(messageType, messageText) {
@@ -44,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Quick reply function
-    function quickReply(message) {
+    window.quickReply = function (message) {
         document.getElementById("inputText").value = message;
         sendMessage();
-    }
+    };
 
     // Generate bot reply
     function generateBotReply(userMessage) {
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         options.forEach(option => {
             let button = document.createElement("button");
             button.textContent = option;
-            button.onclick = function() { quickReply(option); };
+            button.onclick = function () { quickReply(option); };
             quickReplyDiv.appendChild(button);
         });
 
@@ -89,13 +90,16 @@ document.addEventListener('DOMContentLoaded', function () {
         let emailForm = `
           <div>
             <input type="email" id="emailInput" placeholder="Enter your email">
-            <button onclick="submitEmail()">Submit</button>
+            <button id="submitEmailBtn">Submit</button>
           </div>
         `;
         let formDiv = document.createElement("div");
         formDiv.innerHTML = emailForm;
         document.getElementById("chatbox").appendChild(formDiv);
         scrollToBottom();
+
+        // Bind email submission event
+        document.getElementById("submitEmailBtn").addEventListener("click", submitEmail);
     }
 
     // Submit email function
