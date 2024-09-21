@@ -31,20 +31,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Add message to chatbox
-    function addMessageToChatbox(messageType, messageText) {
-        let messageDiv = document.createElement("div");
-        messageDiv.classList.add("message", messageType);
-        messageDiv.textContent = messageText;
-        document.getElementById("chatbox").appendChild(messageDiv);
-        scrollToBottom();
-    }
+    // Add messa// Add message to chatbox
+function addMessageToChatbox(messageType, messageText) {
+    let messageDiv = document.createElement("div");
+    messageDiv.classList.add("message", messageType);
+    messageDiv.textContent = messageText;
+    document.getElementById("chatbox").appendChild(messageDiv);
+    
+    // Use a small delay to ensure the DOM is updated before scrolling
+    setTimeout(scrollToBottom, 100);
+}
 
-    // Scroll to bottom function
-    function scrollToBottom() {
-        let chatbox = document.getElementById("chatbox");
-        chatbox.scrollTop = chatbox.scrollHeight;
-    }
+// Scroll to bottom function
+function scrollToBottom() {
+    let chatbox = document.getElementById("chatbox");
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
 
     // Quick reply function
     window.quickReply = function (message) {
