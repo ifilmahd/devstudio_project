@@ -62,18 +62,12 @@
     position: fixed;
     bottom: 0;
     right: 20px;
-    width: 350px; /* Fixed width */
-    max-height: 500px; /* Set a max height */
-    background-color: #ffffff;
+    width: 350px;
+    background-color: #f9f9f9;
     border: 1px solid #ddd;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 10px; /* Smooth corners */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     font-family: Arial, sans-serif;
     z-index: 1000;
-    display: none; /* Initially hidden */
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden; /* Prevent content from expanding outside the box */
 }
 
 /* Chatbot Header */
@@ -90,52 +84,45 @@
 
 /* Chatbot Body */
 #chatbotBody {
-    height: 450px; /* Set a fixed height for the chat body */
+    height: 300px; /* Fixed height for the chat window */
     overflow-y: auto; /* Enable scrolling */
     padding: 15px;
     background-color: #f8f9fa;
-    box-sizing: border-box; /* Include padding in height */
+    box-sizing: border-box; /* Prevent overflow issues */
 }
 
-/* Chatbox - Keep the messages contained */
+/* Chatbox */
 #chatbox {
     display: flex;
     flex-direction: column;
     max-width: 100%;
     overflow-y: auto; /* Ensure vertical scrolling */
     height: 100%; /* Ensure the chatbox fills the available space */
-    scroll-behavior: smooth; /* Smooth scrolling when new messages are added */
 }
 
 /* Messages */
 .message {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 80%; /* Ensure messages don't exceed 80% of the container width */
-    word-wrap: break-word; /* Break long words to avoid overflow */
+    margin-bottom: 15px;
 }
 
 .botMessage {
     background-color: #eef1f7;
+    padding: 10px;
+    border-radius: 10px;
     color: #333;
-    align-self: flex-start;
 }
 
 .userMessage {
     background-color: #007bff;
     color: white;
-    align-self: flex-end;
+    padding: 10px;
+    border-radius: 10px;
     text-align: right;
 }
 
 /* Quick Replies */
 .quickReplies {
     margin: 10px 0;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    max-width: 100%; /* Ensure quick replies stay within the container */
 }
 
 .quickReplies button {
@@ -160,8 +147,6 @@
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    max-width: 80%; /* Ensure input field stays within the container */
-    box-sizing: border-box; /* Prevent overflowing */
 }
 
 #sendBtn {
@@ -172,17 +157,4 @@
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
-}
-
-/* Scroll to bottom function */
-#chatbox {
-    height: auto;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-/* Make sure chatbox content doesn't stretch */
-.message {
-    max-width: 80%;
-    word-break: break-word;
 }
