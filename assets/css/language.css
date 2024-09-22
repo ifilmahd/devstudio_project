@@ -131,6 +131,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    z-index: 1001; /* Ensure the button is above other content */
 }
 
 /* Responsive Styles */
