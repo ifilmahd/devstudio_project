@@ -7,18 +7,23 @@ document.addEventListener('DOMContentLoaded', function () {
         if (chatbot.style.display === "none" || chatbot.style.display === "") {
             chatbot.style.display = "block";
             chatToggleBtn.style.display = "none"; // Hide the toggle button when the chatbot is visible
+            chatbot.classList.add("show"); // Add class to animate the appearance
         }
     }
 
     window.closeChat = function () {
-        document.getElementById("chatbot").style.display = "none";
-        document.getElementById("chatToggleBtn").style.display = "block"; // Show the toggle button again when chatbot is closed
+        let chatbot = document.getElementById("chatbot");
+        chatbot.classList.remove("show");
+        setTimeout(() => {
+            chatbot.style.display = "none";
+            document.getElementById("chatToggleBtn").style.display = "block"; // Show the toggle button again when chatbot is closed
+        }, 300); // Wait for the transition effect to complete
     }
 
     window.sendMessage = function () {
         let userMessage = document.getElementById("inputText").value;
-        if (userMessage) {
-            addMessageToChatbox("userMessage", userMessage);
+        if (userMessage.trim()) {
+            addMessageToChatbox("user-message", userMessage);
             document.getElementById("inputText").value = "";
 
             setTimeout(() => {
@@ -26,24 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 800);
         }
     }
-if (/services|offer/i.test(userMessage)) {
-    botReply = "We offer web design, e-commerce solutions, and more.";
-} else if (/contact/i.test(userMessage)) {
-    botReply = "You can contact us at +44-753-716-8000.";
-}
-if (userMessage.trim()) {
-    addMessageToChatbox("userMessage", userMessage);
-    document.getElementById("inputText").value = "";
-    setTimeout(() => {
-        generateBotReply(userMessage);
-    }, 800);
-}
-function scrollToBottom() {
-    let chatbody = document.getElementById("chatbody");
-    if (chatbody.scrollHeight - chatbody.scrollTop === chatbody.clientHeight) {
-        chatbody.scrollTop = chatbody.scrollHeight;
-    }
-}
+
     function addMessageToChatbox(messageType, messageText) {
         let messageDiv = document.createElement("div");
         messageDiv.classList.add("message", messageType);
@@ -54,23 +42,25 @@ function scrollToBottom() {
 
     function scrollToBottom() {
         let chatbody = document.getElementById("chatbody");
-        chatbody.scrollTop = chatbody.scrollHeight;
+        if (chatbody.scrollHeight - chatbody.scrollTop === chatbody.clientHeight) {
+            chatbody.scrollTop = chatbody.scrollHeight;
+        }
     }
 
     function generateBotReply(userMessage) {
         let botReply = "Sorry, I don't understand that. Can you please clarify?";
-        
-        if (userMessage.toLowerCase().includes("services")) {
-            botReply = "We offer a variety of services! From custom web design to e-commerce solutions, everything can be discussed to suit your needs.";
-            botReply += " Feel free to ask more about any specific service!";
-        } else if (userMessage.toLowerCase().includes("contact")) {
-            botReply = "You can contact us via WhatsApp at <strong>+44-753-716-8000</strong>. We're here to help!";
-        } else if (userMessage.toLowerCase().includes("price") || userMessage.toLowerCase().includes("pricing")) {
+
+        // Basic keyword matching
+        if (/services|offer/i.test(userMessage)) {
+            botReply = "We offer a variety of services including web design, e-commerce solutions, and more!";
+        } else if (/contact/i.test(userMessage)) {
+            botReply = "You can contact us via WhatsApp at +44-753-716-8000. We're here to help!";
+        } else if (/price|pricing/i.test(userMessage)) {
             botReply = "Our prices are competitive and flexible based on your requirements. Let’s discuss your project!";
-        } else if (userMessage.toLowerCase().includes("thank")) {
+        } else if (/thank/i.test(userMessage)) {
             botReply = "You're welcome! Let me know if you need further assistance.";
         }
-        
-        addMessageToChatbox("botMessage", botReply);
+
+        addMessageToChatbox("bot-message", botReply);
     }
 });
