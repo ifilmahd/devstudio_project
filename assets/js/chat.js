@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         messageDiv.classList.add("message", messageType);
         messageDiv.textContent = messageText;
         document.getElementById("chatbody").appendChild(messageDiv);
-        setTimeout(scrollToBottom, 100); // Ensure scrolling after new message
+        scrollToBottom(); // Ensure scrolling after new message
     }
 
     function scrollToBottom() {
