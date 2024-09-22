@@ -125,3 +125,19 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+@media (max-width: 600px) {
+    .chat-widget {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+}
+.chat-widget {
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+    opacity: 0;
+}
+.chat-widget.show {
+    opacity: 1;
+    bottom: 20px;
+}
