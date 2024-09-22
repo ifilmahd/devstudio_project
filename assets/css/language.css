@@ -55,6 +55,13 @@ body {
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+    opacity: 0;
+}
+
+.chat-widget.show {
+    opacity: 1;
+    bottom: 20px;
 }
 
 .chat-header {
@@ -125,6 +132,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* Responsive Design for Mobile Devices */
 @media (max-width: 600px) {
     .chat-widget {
         width: 100%;
@@ -132,12 +141,4 @@ body {
         right: 0;
         border-radius: 0;
     }
-}
-.chat-widget {
-    transition: opacity 0.3s ease, bottom 0.3s ease;
-    opacity: 0;
-}
-.chat-widget.show {
-    opacity: 1;
-    bottom: 20px;
 }
