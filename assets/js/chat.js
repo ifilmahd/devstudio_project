@@ -23,9 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
     window.sendMessage = function () {
         let userMessage = document.getElementById("inputText").value;
         if (userMessage.trim()) {
-            addMessageToChatbox("user-message", userMessage);
-            document.getElementById("inputText").value = "";
+            addMessageToChatbox("user-message", userMessage); // Add user message to the chat
+            document.getElementById("inputText").value = ""; // Clear the input field
 
+            // Simulate a bot response with a delay
             setTimeout(() => {
                 generateBotReply(userMessage);
             }, 800);
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         messageDiv.classList.add("message", messageType);
         messageDiv.textContent = messageText;
         document.getElementById("chatbody").appendChild(messageDiv);
-        scrollToBottom();
+        setTimeout(scrollToBottom, 100); // Delay to ensure DOM updates before scrolling
     }
 
     function scrollToBottom() {
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function generateBotReply(userMessage) {
         let botReply = "Sorry, I don't understand that. Can you please clarify?";
 
-        // Basic keyword matching
+        // Simple keyword matching for bot responses
         if (/services|offer/i.test(userMessage)) {
             botReply = "We offer a variety of services including web design, e-commerce solutions, and more!";
         } else if (/contact/i.test(userMessage)) {
@@ -59,6 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
             botReply = "You're welcome! Let me know if you need further assistance.";
         }
 
-        addMessageToChatbox("bot-message", botReply);
+        addMessageToChatbox("bot-message", botReply); // Add bot message to the chat
     }
 });
