@@ -41,7 +41,7 @@
     margin: 0;
 }
 
-/* Adjusted mobile-friendly CSS */
+/* CHAT BOT CSS */
 body {
     font-family: Arial, sans-serif;
 }
@@ -54,9 +54,8 @@ body {
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
-    bottom: 20px; /* Add some space from the bottom */
-    right: 20px; /* Add some space from the right */
-    z-index: 1000;
+    bottom: 20px; /* Spacing from bottom */
+    right: 20px; /* Spacing from right */
     display: flex;
     flex-direction: column;
     max-height: 70vh; /* Dynamic height for chat window */
@@ -100,7 +99,6 @@ body {
     padding: 10px;
     border-top: 1px solid #ccc;
     background-color: #f1f1f1;
-    height: 60px; /* Fixed height for footer */
 }
 
 .chat-footer input {
