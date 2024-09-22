@@ -109,9 +109,10 @@ body {
 
 .chat-footer input {
     flex: 1;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;  /* Increase font size for better mobile usability */
 }
 
 .chat-footer button {
@@ -119,9 +120,10 @@ body {
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 10px 15px;  /* Increase padding for better touchability */
     margin-left: 5px;
     cursor: pointer;
+    font-size: 16px;  /* Make button text larger for mobile */
 }
 
 #chatToggleBtn {
@@ -139,9 +141,30 @@ body {
 /* Responsive Design for Mobile Devices */
 @media (max-width: 600px) {
     .chat-widget {
-        width: 100%;
+        width: 100%;  /* Make chat widget take the full width of the mobile screen */
         bottom: 0;
         right: 0;
-        border-radius: 0;
+        left: 0;  /* Make it stick to the left */
+        border-radius: 0;  /* Remove border-radius for full-screen effect */
+        max-height: 60%;  /* Limit the max height on mobile to 60% */
+    }
+
+    .chat-body {
+        max-height: calc(100vh - 180px);  /* Dynamically calculate height to fit on small screens */
+    }
+
+    .chat-footer input {
+        font-size: 18px;  /* Larger input field for mobile */
+    }
+
+    .chat-footer button {
+        font-size: 18px;  /* Larger button for mobile */
+        padding: 10px 20px;
+    }
+
+    #chatToggleBtn {
+        bottom: 10px;
+        right: 10px;
+        font-size: 18px;
     }
 }
