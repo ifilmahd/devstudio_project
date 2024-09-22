@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     window.toggleChat = function () {
         const chatbot = document.getElementById("chatbot");
-        chatbot.style.display = (chatbot.style.display === "none" || chatbot.style.display === "") ? "flex" : "none";
-        if (chatbot.style.display === "flex") {
-            scrollToBottom();
+        const chatToggleBtn = document.getElementById("chatToggleBtn");
+
+        if (chatbot.style.display === "none" || chatbot.style.display === "") {
+            chatbot.style.display = "flex"; // Show chatbot
+            chatToggleBtn.style.display = "none"; // Hide toggle button
+            scrollToBottom(); // Scroll to bottom on open
         }
     }
 
     window.closeChat = function () {
         document.getElementById("chatbot").style.display = "none";
+        document.getElementById("chatToggleBtn").style.display = "block"; // Show toggle button again
     }
 
     window.sendMessage = function () {
@@ -28,12 +32,12 @@ document.addEventListener('DOMContentLoaded', function () {
         messageDiv.classList.add("message", messageType);
         messageDiv.textContent = messageText;
         document.getElementById("chatbody").appendChild(messageDiv);
-        scrollToBottom();
+        scrollToBottom(); // Scroll to the latest message
     }
 
     function scrollToBottom() {
         const chatbody = document.getElementById("chatbody");
-        chatbody.scrollTop = chatbody.scrollHeight;
+        chatbody.scrollTop = chatbody.scrollHeight; // Ensure the latest message is visible
     }
 
     function generateBotReply(userMessage) {
@@ -53,13 +57,13 @@ document.addEventListener('DOMContentLoaded', function () {
             botReply = "I’m here to help! What do you need assistance with?";
         }
 
-        addMessageToChatbox("bot-message", botReply);
+        addMessageToChatbox("bot-message", botReply); // Show bot reply
     }
 
     document.getElementById("inputText").addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
             event.preventDefault();
-            sendMessage();
+            sendMessage(); // Send message on Enter key press
         }
     });
 });
