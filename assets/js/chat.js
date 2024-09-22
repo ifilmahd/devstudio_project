@@ -42,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function scrollToBottom() {
         let chatbody = document.getElementById("chatbody");
-        if (chatbody.scrollHeight - chatbody.scrollTop === chatbody.clientHeight) {
-            chatbody.scrollTop = chatbody.scrollHeight;
-        }
+        chatbody.scrollTop = chatbody.scrollHeight; // Auto-scroll to the bottom on each new message
     }
 
     function generateBotReply(userMessage) {
