@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function generateBotReply(userMessage) {
         let botReply = "Sorry, I didn't understand that. Can you please clarify?";
-        
+
         if (/services|offer/i.test(userMessage)) {
             botReply = "We offer web design, e-commerce solutions, and more!";
         } else if (/contact/i.test(userMessage)) {
@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', function () {
             botReply = "Our prices are flexible based on your requirements. Let’s discuss!";
         } else if (/thank/i.test(userMessage)) {
             botReply = "You're welcome! Let me know if you need further assistance.";
+        } else if (/hello|hi/i.test(userMessage)) {
+            botReply = "Hello! How can I help you today?";
+        } else if (/help/i.test(userMessage)) {
+            botReply = "I’m here to help! What do you need assistance with?";
         }
 
         addMessageToChatbox("bot-message", botReply);
