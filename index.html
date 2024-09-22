@@ -903,23 +903,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
                 </div>
             </div>  
-              <div id="chatbot" class="chat-widget" style="display: none;">
-        <div class="chat-header">
-            <h4>Customer Support</h4>
-            <button class="close-chat" onclick="closeChat()">×</button>
-        </div>
-        <div id="chatbody" class="chat-body">
-            <div class="message bot-message">
-                <p>👋 Hi there! Welcome to our service. How can I assist you today?</p>
+               <main>
+        <div id="chatbot" class="chat-widget" style="display: none;">
+            <div class="chat-header">
+                <h4>Customer Support</h4>
+                <button class="close-chat" aria-label="Close chat" onclick="closeChat()">×</button>
+            </div>
+            <div id="chatbody" class="chat-body">
+                <div class="message bot-message">
+                    <p>👋 Hi there! Welcome to our service. How can I assist you today?</p>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="inputText" aria-label="Type your message" placeholder="Type your message..." />
+                <button id="sendBtn" aria-label="Send message" onclick="sendMessage()">Send</button>
             </div>
         </div>
-        <div class="chat-footer">
-            <input type="text" id="inputText" placeholder="Type your message..." />
-            <button id="sendBtn" onclick="sendMessage()">Send</button>
-        </div>
-    </div>
-    
-    <button id="chatToggleBtn" onclick="toggleChat()">Chat with us!</button>
+        
+        <button id="chatToggleBtn" aria-label="Open chat" onclick="toggleChat()">Chat with us!</button>
+    </main>
         </footer>
     </main>
 
