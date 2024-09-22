@@ -68,6 +68,7 @@ body {
   border-radius: 50%;
   background: #724ae8;
   transition: all 0.2s ease;
+    z-index: 999999;
 }
 body.show-chatbot .chatbot-toggler {
   transform: rotate(90deg);
@@ -103,6 +104,7 @@ body.show-chatbot .chatbot {
   opacity: 1;
   pointer-events: auto;
   transform: scale(1);
+  z-index: 999999;
 }
 .chatbot header {
   padding: 16px 0;
