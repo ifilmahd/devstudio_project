@@ -26,7 +26,24 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 800);
         }
     }
-
+if (/services|offer/i.test(userMessage)) {
+    botReply = "We offer web design, e-commerce solutions, and more.";
+} else if (/contact/i.test(userMessage)) {
+    botReply = "You can contact us at +44-753-716-8000.";
+}
+if (userMessage.trim()) {
+    addMessageToChatbox("userMessage", userMessage);
+    document.getElementById("inputText").value = "";
+    setTimeout(() => {
+        generateBotReply(userMessage);
+    }, 800);
+}
+function scrollToBottom() {
+    let chatbody = document.getElementById("chatbody");
+    if (chatbody.scrollHeight - chatbody.scrollTop === chatbody.clientHeight) {
+        chatbody.scrollTop = chatbody.scrollHeight;
+    }
+}
     function addMessageToChatbox(messageType, messageText) {
         let messageDiv = document.createElement("div");
         messageDiv.classList.add("message", messageType);
