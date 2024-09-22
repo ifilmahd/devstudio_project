@@ -44,21 +44,25 @@
 /* CHAT BOT CSS */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .chat-widget {
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 100%; /* Full width for mobile */
-    max-width: 400px; /* Limit width for larger screens */
+    width: 100%;
+    max-width: 400px;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
-    bottom: 20px; /* Spacing from bottom */
-    right: 20px; /* Spacing from right */
+    bottom: 20px;
+    right: 20px;
     display: flex;
     flex-direction: column;
-    max-height: 70vh; /* Dynamic height for chat window */
+    max-height: 70vh;
+    overflow: hidden;
+    display: none; /* Start hidden */
 }
 
 .chat-header {
@@ -73,8 +77,8 @@ body {
 
 .chat-body {
     padding: 10px;
-    overflow-y: auto; /* Allow scrolling */
-    flex: 1; /* Take available space */
+    overflow-y: auto;
+    flex: 1;
 }
 
 .message {
@@ -98,7 +102,6 @@ body {
     display: flex;
     padding: 10px;
     border-top: 1px solid #ccc;
-    background-color: #f1f1f1;
 }
 
 .chat-footer input {
@@ -106,7 +109,6 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
 }
 
 .chat-footer button {
@@ -129,13 +131,4 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-/* Make chat widget take full width on mobile */
-@media screen and (max-width: 600px) {
-    .chat-widget {
-        width: 100%;
-        right: 0;
-        border-radius: 0;
-    }
 }
