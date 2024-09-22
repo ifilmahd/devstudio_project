@@ -135,26 +135,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name='dmca-site-verification' content='eU9KdytNQVRMN2tDRTljWEI2WFFLUT090' />
 <body>
      <!-- CHAT BOT -->
- <button class="chatbot-toggler">
-      <span class="material-symbols-rounded">💬</span>
-      <span class="material-symbols-outlined">close</span>
-    </button>
-    <div class="chatbot">
-      <header>
-        <h2>Chatbot</h2>
-        <span class="close-btn material-symbols-outlined">close</span>
-      </header>
-      <ul class="chatbox">
-        <li class="chat incoming">
-          <span class="material-symbols-outlined">smart_toy</span>
-          <p>Hi there <br>How can I help you today?</p>
-        </li>
-      </ul>
-      <div class="chat-input">
-        <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
-        <span id="send-btn" class="material-symbols-rounded">send</span>
+ <div class="chat-widget">
+  <div class="chat-header">
+    <img src="https://via.placeholder.com/40" alt="User Photo" class="user-photo">
+    <div class="user-info">
+      <span class="user-name">John Doe</span>
+      <span class="user-status">Online</span>
+    </div>
+    <span class="close-btn">&times;</span>
+  </div>
+  
+  <div class="chat-body">
+    <div class="message">
+      <img src="https://via.placeholder.com/40" alt="User Photo" class="message-photo">
+      <div class="message-content">
+        <span class="message-text">Hi there 👋</span>
+        <span class="message-text">How can I help you?</span>
       </div>
     </div>
+  </div>
+
+  <div class="chat-footer">
+    <a href="#" class="social-button whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" class="social-button email"><i class="fas fa-envelope"></i></a>
+    <a href="#" class="social-button instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-button telegram"><i class="fab fa-telegram-plane"></i></a>
+  </div>
+
+  <div class="chat-launcher">
+    <i class="fas fa-comment"></i>
+  </div>
+</div>
     <!-- Main -->
     <main class="main-page homepage">
         <!-- Header Bar -->
