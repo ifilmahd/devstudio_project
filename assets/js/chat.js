@@ -6,26 +6,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (chatbot.style.display === "none" || chatbot.style.display === "") {
             chatbot.style.display = "block";
-            chatToggleBtn.style.display = "none"; // Hide the toggle button when the chatbot is visible
-            chatbot.classList.add("show");
-            scrollToBottom(); // Scroll to bottom when chat is opened
+            chatToggleBtn.style.display = "none"; // Hide toggle button when chatbot is visible
+            scrollToBottom(); // Ensure chat scrolls to bottom when opened
         }
     }
 
     window.closeChat = function () {
         let chatbot = document.getElementById("chatbot");
-        chatbot.classList.remove("show");
-        setTimeout(() => {
-            chatbot.style.display = "none";
-            document.getElementById("chatToggleBtn").style.display = "block"; // Show the toggle button again when chatbot is closed
-        }, 300); // Wait for the transition effect to complete
+        chatbot.style.display = "none";
+        document.getElementById("chatToggleBtn").style.display = "block"; // Show toggle button again when chatbot is closed
     }
 
     window.sendMessage = function () {
         let userMessage = document.getElementById("inputText").value.trim();
         if (userMessage) {
             addMessageToChatbox("user-message", userMessage); // Add user message to chat
-            document.getElementById("inputText").value = ""; // Clear input
+            document.getElementById("inputText").value = ""; // Clear input field
 
             // Simulate bot response after a delay
             setTimeout(() => {
@@ -39,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
         messageDiv.classList.add("message", messageType);
         messageDiv.textContent = messageText;
         document.getElementById("chatbody").appendChild(messageDiv);
-        setTimeout(scrollToBottom, 100); // Ensure scrolling happens after message is added
+        setTimeout(scrollToBottom, 100); // Ensure scrolling after new message
     }
 
     function scrollToBottom() {
         let chatbody = document.getElementById("chatbody");
-        chatbody.scrollTop = chatbody.scrollHeight; // Auto-scroll to bottom
+        chatbody.scrollTop = chatbody.scrollHeight; // Auto-scroll to the bottom
     }
 
     function generateBotReply(userMessage) {
