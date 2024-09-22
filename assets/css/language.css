@@ -41,6 +41,7 @@
     margin: 0;
 }
 
+/* Adjusted mobile-friendly CSS */
 body {
     font-family: Arial, sans-serif;
 }
@@ -48,20 +49,17 @@ body {
 .chat-widget {
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 300px;
+    width: 100%; /* Full width on mobile */
+    max-width: 400px; /* Set max width for larger screens */
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0;
+    right: 0;
     z-index: 1000;
-    transition: opacity 0.3s ease, bottom 0.3s ease;
-    opacity: 0;
-}
-
-.chat-widget.show {
-    opacity: 1;
-    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh; /* Dynamic height for mobile */
 }
 
 .chat-header {
@@ -76,30 +74,24 @@ body {
 
 .chat-body {
     padding: 10px;
-    max-height: 400px;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
+    flex: 1; /* Take up remaining space */
 }
 
 .message {
     margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
     max-width: 80%;
-    display: inline-block;
 }
 
 .bot-message {
     background: #e1f5fe;
-    padding: 10px;
-    border-radius: 10px;
-    align-self: flex-start;  /* Align bot messages to the left */
 }
 
 .user-message {
     background: #c8e6c9;
-    padding: 10px;
-    border-radius: 10px;
-    align-self: flex-end; /* Align user messages to the right */
+    align-self: flex-end;
 }
 
 .chat-footer {
@@ -112,59 +104,34 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;  /* Increase font size for better mobile usability */
 }
 
 .chat-footer button {
     background: #0078d4;
-    color: #fff;
+    color: white;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;  /* Increase padding for better touchability */
     margin-left: 5px;
-    cursor: pointer;
-    font-size: 16px;  /* Make button text larger for mobile */
 }
 
 #chatToggleBtn {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 10px 15px;
     background-color: #0078d4;
     color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-/* Responsive Design for Mobile Devices */
-@media (max-width: 600px) {
+/* Make chat widget take full width on mobile */
+@media screen and (max-width: 600px) {
     .chat-widget {
-        width: 100%;  /* Make chat widget take the full width of the mobile screen */
-        bottom: 0;
+        width: 100%;
         right: 0;
-        left: 0;  /* Make it stick to the left */
-        border-radius: 0;  /* Remove border-radius for full-screen effect */
-        max-height: 60%;  /* Limit the max height on mobile to 60% */
-    }
-
-    .chat-body {
-        max-height: calc(100vh - 180px);  /* Dynamically calculate height to fit on small screens */
-    }
-
-    .chat-footer input {
-        font-size: 18px;  /* Larger input field for mobile */
-    }
-
-    .chat-footer button {
-        font-size: 18px;  /* Larger button for mobile */
-        padding: 10px 20px;
-    }
-
-    #chatToggleBtn {
-        bottom: 10px;
-        right: 10px;
-        font-size: 18px;
+        border-radius: 0;
     }
 }
