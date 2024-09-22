@@ -135,23 +135,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name='dmca-site-verification' content='eU9KdytNQVRMN2tDRTljWEI2WFFLUT090' />
 <body>
      <!-- CHAT BOT -->
- <div id="chatbot" class="chat-widget">
-        <div class="chat-header">
-            <h4>Customer Support</h4>
-            <button class="close-chat" onclick="closeChat()">×</button>
-        </div>
-        <div id="chatbody" class="chat-body">
-            <div class="message bot-message">
-                <p>👋 Hi there! Welcome to our service. How can I assist you today?</p>
-            </div>
-        </div>
-        <div class="chat-footer">
-            <input type="text" id="inputText" placeholder="Type your message..." />
-            <button id="sendBtn" onclick="sendMessage()">Send</button>
-        </div>
+ <button class="chatbot-toggler">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+      <header>
+        <h2>Chatbot</h2>
+        <span class="close-btn material-symbols-outlined">close</span>
+      </header>
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <span class="material-symbols-outlined">smart_toy</span>
+          <p>Hi there <br>How can I help you today?</p>
+        </li>
+      </ul>
+      <div class="chat-input">
+        <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+        <span id="send-btn" class="material-symbols-rounded">send</span>
+      </div>
     </div>
-    
-    <button id="chatToggleBtn" onclick="toggleChat()">Chat with us!</button>
     <!-- Main -->
     <main class="main-page homepage">
         <!-- Header Bar -->
